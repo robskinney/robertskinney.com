@@ -1,29 +1,16 @@
-import { Link } from "@nextui-org/link";
-import { Snippet } from "@nextui-org/snippet";
-import { Code } from "@nextui-org/code";
-import { button as buttonStyles } from "@nextui-org/theme";
 import { Image } from "@nextui-org/image";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
+import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Chip } from "@nextui-org/chip";
-
-import { siteConfig } from "@/config/site";
-import { title, subtitle } from "@/components/primitives";
-import { GithubIcon } from "@/components/icons";
-import { Divider, Spacer } from "@nextui-org/react";
 import { Tooltip } from "@nextui-org/tooltip";
 import {
   BicepsFlexed,
   Book,
-  Braces,
-  Code2,
+  CheckCheck,
   Database,
-  HardDrive,
   Layers,
-  Quote,
-  School,
-  Weight,
-  Workflow
+  Quote
 } from "lucide-react";
+import { Divider, Spacer } from "@nextui-org/react";
 
 export default function Home() {
   return (
@@ -168,21 +155,11 @@ export default function Home() {
         </Card>
       </div>
 
-      {/* <Card className="max-w-[700px]">
-        <CardBody>
-          <Quote className="pb-2" />
-          My professional experience at EY has entrenched my expertise right at
-          the intersection of technology and business. With a strong foundation
-          in both business and technical skills, I am eager to contribute and
-          continuously learn in a dynamic work environment.
-        </CardBody>
-      </Card> */}
-
       <div className="flex flex-col md:flex-row space-x-0 md:space-x-4">
         <Card className="flex max-w-[400px] min-w-[200px] md:mt-0">
           <CardHeader>
             <div className="flex flex-row items-center">
-              <BicepsFlexed className="mr-1" size={20} />
+              <CheckCheck className="mr-1" size={20} />
               Experience
             </div>
           </CardHeader>
@@ -235,7 +212,7 @@ export default function Home() {
           </CardBody>
         </Card>
       </div>
-      <Card className="flex max-w-[400px] mb-5">
+      <Card className="flex max-w-[450] mb-5">
         <CardHeader>
           <div className="flex flex-row items-center">
             <BicepsFlexed className="mr-1" size={20} />
@@ -306,7 +283,28 @@ export default function Home() {
               color="secondary"
               variant="flat"
             >
-              Next.js
+              React/Next.js
+            </Chip>
+            <Chip
+              className="cursor-default m-1"
+              color="secondary"
+              variant="flat"
+            >
+              HTML
+            </Chip>
+            <Chip
+              className="cursor-default m-1"
+              color="secondary"
+              variant="flat"
+            >
+              CSS
+            </Chip>
+            <Chip
+              className="cursor-default m-1"
+              color="secondary"
+              variant="flat"
+            >
+              Spanish
             </Chip>
           </div>
         </CardBody>
