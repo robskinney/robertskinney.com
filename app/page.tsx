@@ -159,7 +159,7 @@ export default function Home() {
         <Card className="flex max-w-[400px] min-w-[200px] md:mt-0">
           <CardHeader>
             <div className="flex flex-row items-center">
-              <CheckCheck className="mr-1" size={20} />
+              <CheckCheck className="mr-1.5" size={20} />
               Experience
             </div>
           </CardHeader>
@@ -212,10 +212,10 @@ export default function Home() {
           </CardBody>
         </Card>
       </div>
-      <Card className="flex max-w-[450] mb-5">
+      <Card className="flex max-w-[350] mb-5">
         <CardHeader>
           <div className="flex flex-row items-center">
-            <BicepsFlexed className="mr-1" size={20} />
+            <BicepsFlexed className="mr-1.5" size={20} />
             Skills
           </div>
         </CardHeader>
