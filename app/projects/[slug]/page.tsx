@@ -22,7 +22,7 @@ export default async function Page({ params }: any) {
         <p className="text-4xl font-bold cursor-default">{project.name}</p>
         <Link href={project.link} target="_blank">
           <Button
-            className="space-x-2 items-center"
+            className="space-x-2 items-center hover:scale-105 transition-all"
             color="secondary"
             size="sm"
             variant="flat"
