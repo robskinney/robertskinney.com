@@ -1,4 +1,3 @@
-"use client";
 import {
   Button,
   Input,
@@ -11,11 +10,12 @@ import {
   useDisclosure
 } from "@nextui-org/react";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm, Controller } from "react-hook-form";
+// import { useForm, Controller } from "react-hook-form";
 import { z } from "zod";
 import React from "react";
 // import { Toast } from "@radix-ui/react-toast";
-import useSendEmail from "@/hooks/useSendEmail";
+// import useSendEmail from "@/hooks/useSendEmail";
+import Link from "next/link";
 
 // export function sendEmail(data: any) {
 
@@ -49,53 +49,56 @@ import useSendEmail from "@/hooks/useSendEmail";
 // }
 
 export default function ContactForm() {
-  const { sendEmail } = useSendEmail();
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  // const { sendEmail } = useSendEmail();
+  // const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const formSchema = z.object({
-    name: z.string().min(1, {
-      message: "Name is required"
-    }),
-    email: z.string().email({ message: "Invalid email address" }).min(1, {
-      message: "Email is required"
-    }),
-    message: z.string().min(1, {
-      message: "Message is required"
-    })
-  });
+  // const formSchema = z.object({
+  //   name: z.string().min(1, {
+  //     message: "Name is required"
+  //   }),
+  //   email: z.string().email({ message: "Invalid email address" }).min(1, {
+  //     message: "Email is required"
+  //   }),
+  //   message: z.string().min(1, {
+  //     message: "Message is required"
+  //   })
+  // });
 
-  const {
-    handleSubmit,
-    control,
-    reset,
-    formState: { errors },
-    trigger
-  } = useForm({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      name: "",
-      email: "",
-      message: ""
-    },
-    mode: "onBlur" // Validate on blur to show errors as soon as fields lose focus
-  });
+  // const {
+  //   handleSubmit,
+  //   control,
+  //   reset,
+  //   formState: { errors },
+  //   trigger
+  // } = useForm({
+  //   resolver: zodResolver(formSchema),
+  //   defaultValues: {
+  //     name: "",
+  //     email: "",
+  //     message: ""
+  //   },
+  //   mode: "onBlur" // Validate on blur to show errors as soon as fields lose focus
+  // });
 
   // Function to handle form submission
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    //   function onSubmit(values: FormData) {
-    // console.log("Form Submitted:", values);
-    sendEmail(values);
-    reset(); // Reset form after submission
-    onClose(); // Close modal after submission
-  }
+  // function onSubmit(values: z.infer<typeof formSchema>) {
+  //   sendEmail(values);
+  //   reset(); // Reset form after submission
+  //   onClose(); // Close modal after submission
+  // }
 
   return (
     <>
-      <Button color="secondary" size="sm" variant="flat" onPress={onOpen}>
+      {/* <Button color="secondary" size="sm" variant="flat" onPress={onOpen}>
         Contact Me
-      </Button>
+      </Button> */}
+      <Link href="mailto:robertskinney@outlook.com?Subject=Inquiry to Robert Kinney">
+        <Button color="secondary" size="sm" variant="flat">
+          Contact Me
+        </Button>
+      </Link>
 
-      <Modal
+      {/* <Modal
         backdrop="blur"
         isOpen={isOpen}
         placement="top-center"
@@ -179,7 +182,7 @@ export default function ContactForm() {
             </ModalFooter>
           </form>
         </ModalContent>
-      </Modal>
+      </Modal> */}
     </>
   );
 }

@@ -1,85 +1,57 @@
-import { title } from "@/components/primitives";
 import { Image } from "@nextui-org/image";
-import { Card, CardHeader, CardBody, CardFooter } from "@nextui-org/card";
-import { Button } from "@nextui-org/button";
+import { Card, CardHeader, CardBody } from "@nextui-org/card";
 import { Chip } from "@nextui-org/chip";
-import { SquareArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import { projects } from "@/lib/data"; // Ensure this imports the updated projects data
+import { Divider } from "@nextui-org/react";
+
+import { Projects } from "@/lib/data";
 
 export default function ProjectsPage() {
-  // Convert the projects object into an array of project entries
-  const projectEntries = Object.entries(projects);
+  const projectEntries = Object.entries(Projects);
 
   return (
-    <div>
-      <h1 className={title()}>Project Highlights</h1>
+    <section className="flex flex-col items-center justify-center gap-6 mb-4">
+      <p className="text-4xl font-bold cursor-default">Project Highlights</p>
+      <Divider />
 
-      <div className="flex flex-col pt-5 space-y-5 mb-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {projectEntries.map(([key, item]: any, index) => (
-          <Card key={index}>
-            <CardHeader className="flex flex-row space-x-1.5">
-              <p className="text-xl font-bold cursor-default">{item.name}</p>
-              <SquareArrowUpRight size={20} color="#b249f8" />
-            </CardHeader>
-            <CardBody>
-              <div className="flex space-x-3 w-full">
-                <Card isFooterBlurred radius="lg" className="border-none">
+          <Link key={index} href={`/projects/${item.slug}`}>
+            <Card className="hover:scale-[1.02] transition-all w-full h-56">
+              <CardHeader>
+                <p className="text-xl font-bold cursor-default">{item.name}</p>
+              </CardHeader>
+              <CardBody className="flex flex-row gap-4">
+                <Card>
                   <Image
                     alt={`${item.name} Splash Page`}
-                    className="object-cover"
-                    width={300}
+                    className="shadow-lg outline-1"
+                    height={150}
+                    radius="lg"
                     src={item.image}
+                    width={200}
                   />
-                  <CardFooter
-                    className={`justify-center border-1 overflow-hidden py-1 absolute rounded-large bottom-1 w-[calc(100%_-_8px)] shadow-small ml-1 z-10 ${
-                      item.visual === "Dark"
-                        ? "before:bg-white/10 border-white/20"
-                        : "before:bg-white/10 border-black/20"
-                    }`}
-                  >
-                    <Link href={`/projects/${item.slug}`}>
-                      <Button
-                        className={`text-tiny ${
-                          item.visual === "Dark"
-                            ? "text-white bg-black/20"
-                            : "text-black bg-black/20"
-                        }`}
-                        variant="flat"
-                        color="default"
-                        radius="lg"
-                        size="sm"
-                      >
-                        Learn More
-                      </Button>
-                    </Link>
-                  </CardFooter>
                 </Card>
-                <Card className="flex max-w-[350px]">
-                  <CardHeader>Features</CardHeader>
-                  <CardBody>
-                    <div className="flex flex-col space-y-1">
-                      {item.tags.map((tag: any, index: number) => (
-                        <Chip
-                          variant="flat"
-                          color="secondary"
-                          size="md"
-                          classNames={{
-                            base: "flex flex-wrap"
-                          }}
-                          key={index}
-                        >
-                          {tag}
-                        </Chip>
-                      ))}
-                    </div>
+                <Card className="w-1/2" radius="lg">
+                  <CardBody className="w-full space-y-1 text-xs">
+                    {item.tags.map((tag: any, index: number) => (
+                      <Chip
+                        key={index}
+                        className="min-w-full"
+                        color="secondary"
+                        size="md"
+                        variant="flat"
+                      >
+                        <p className="flex text-wrap text-xs ">{tag}</p>
+                      </Chip>
+                    ))}
                   </CardBody>
                 </Card>
-              </div>
-            </CardBody>
-          </Card>
+              </CardBody>
+            </Card>
+          </Link>
         ))}
       </div>
-    </div>
+    </section>
   );
 }

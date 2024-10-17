@@ -1,61 +1,43 @@
-"use client";
-import {
-  ResponsiveIframeViewer,
-  ViewportSize
-} from "react-responsive-iframe-viewer";
-import { Breadcrumbs, BreadcrumbItem } from "@nextui-org/breadcrumbs";
 import Link from "next/link";
+import { Divider } from "@nextui-org/divider";
+import { SquareArrowUpRight } from "lucide-react";
+import { Button } from "@nextui-org/button";
 
-import { Tabs, Tab } from "@nextui-org/tabs";
-import { Card, CardBody } from "@nextui-org/card";
-import { projects } from "@/lib/data";
+import { Projects } from "@/lib/data";
+import { getPostBySlug } from "@/lib/mdx";
 
-export default async function EmbeddedWebPage({
-  params
-}: {
-  params: { slug: string };
-}) {
-  const project = projects[params.slug];
+const getPageContent = async (slug: any) => {
+  const { meta, content } = await getPostBySlug(slug);
 
-  const innerHtml = project.about;
+  return { meta, content };
+};
+
+export default async function Page({ params }: any) {
+  const { content } = await getPageContent(params.slug);
+  const project = Projects[params.slug];
 
   return (
-    <div>
-      <Breadcrumbs>
-        <BreadcrumbItem>
-          <Link href="/projects">Projects</Link>
-        </BreadcrumbItem>
-        <BreadcrumbItem>{project.name}</BreadcrumbItem>
-      </Breadcrumbs>
+    <section className="flex flex-col items-center justify-center gap-6 mb-4">
+      <div className="flex flex-row items-center space-x-3">
+        <p className="text-4xl font-bold cursor-default">{project.name}</p>
+        <Link href={project.link} target="_blank">
+          <Button
+            className="space-x-2 items-center"
+            color="secondary"
+            size="sm"
+            variant="flat"
+          >
+            Visit Site
+            <SquareArrowUpRight size={20} />
+          </Button>
+        </Link>
+      </div>
 
-      <Tabs aria-label="Tabs" className="mb-2 mt-3">
-        <Tab key="about" title="About">
-          <div className="w-[80vw] md:w-[60vw] h-[70vh] mx-auto">
-            <Card>
-              <CardBody>
-                <div
-                  className="pt-2"
-                  dangerouslySetInnerHTML={{ __html: innerHtml }}
-                />
-              </CardBody>
-            </Card>
-          </div>
-        </Tab>
-        <Tab key="view" title="View">
-          <Card>
-            <CardBody>
-              <div className="w-[80vw] md:w-[60vw] h-[70vh] mx-auto">
-                <ResponsiveIframeViewer
-                  enabledControls={[]}
-                  size={ViewportSize.fluid}
-                  src={project.link}
-                  title={project.name}
-                />
-              </div>
-            </CardBody>
-          </Card>
-        </Tab>
-      </Tabs>
-    </div>
+      <Divider />
+
+      <article className="prose lg:prose-xl dark:prose-invert">
+        {content}
+      </article>
+    </section>
   );
 }

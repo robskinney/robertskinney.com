@@ -46,7 +46,7 @@ export default function RootLayout({
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
           <div className="relative flex flex-col h-screen">
             <Navbar />
-            <main className="container mx-auto max-w-7xl pt-4 px-6 flex-grow">
+            <main className="container mx-auto w-full pt-4 px-6 flex-grow">
               {children}
             </main>
             <Toaster />
@@ -56,14 +56,14 @@ export default function RootLayout({
                 aria-label="LinkedIn"
                 href={siteConfig.links.linkedin}
               >
-                <LinkedInIcon className="text-default-500" />
+                <LinkedInIcon className="text-default-500 hover:scale-110 transition-all" />
               </Link>
               <Link
                 isExternal
                 aria-label="Github"
                 href={siteConfig.links.github}
               >
-                <GithubIcon className="text-default-500" />
+                <GithubIcon className="text-default-500 hover:scale-110 transition-all" />
               </Link>
               <ThemeSwitch />
             </footer>
