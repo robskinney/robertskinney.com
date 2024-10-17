@@ -26,7 +26,7 @@ export default function ResumePage() {
         <Button
           download
           as="a"
-          className="space-x-2 items-center"
+          className="space-x-2 items-center hover:scale-105 transition-all"
           color="secondary"
           href="/Kinney_Robert_Resume.pdf"
           size="sm"
@@ -131,7 +131,7 @@ export default function ResumePage() {
         </CardBody>
       </Card>
 
-      <Card className="flex w-full mt-3 md:mt-0 hover:scale-[1.005] transition-all">
+      <Card className="flex mt-3 md:mt-0 hover:scale-[1.005] transition-all">
         <CardHeader>
           <div className="flex flex-row items-center">
             <AppWindow className="mr-1.5" size={20} />
@@ -139,7 +139,7 @@ export default function ResumePage() {
           </div>
         </CardHeader>
         <CardBody>
-          <div className="flex flex-wrap justify-center items-center">
+          <div className="flex flex-wrap justify-center items-center w-[80vw]">
             {TechnicalSkills.ToolsAndEnvironments.map(
               (skill: string, index: number) => (
                 <Chip
@@ -156,7 +156,7 @@ export default function ResumePage() {
         </CardBody>
       </Card>
 
-      <Card className="flex w-full mt-3 md:mt-0 hover:scale-[1.005] transition-all">
+      <Card className="flex mt-3 md:mt-0 hover:scale-[1.005] transition-all">
         <CardHeader>
           <div className="flex flex-row items-center">
             <MemoryStick className="mr-1.5" size={20} />
@@ -164,7 +164,7 @@ export default function ResumePage() {
           </div>
         </CardHeader>
         <CardBody>
-          <div className="flex flex-wrap justify-center items-center">
+          <div className="flex flex-wrap justify-center items-center w-[80vw]">
             {TechnicalSkills.Programming.map((skill: string, index: number) => (
               <Chip
                 key={index}
@@ -179,7 +179,7 @@ export default function ResumePage() {
         </CardBody>
       </Card>
 
-      <Card className="flex w-full mt-3 md:mt-0 hover:scale-[1.005] transition-all">
+      <Card className="flex mt-3 md:mt-0 hover:scale-[1.005] transition-all">
         <CardHeader>
           <div className="flex flex-row items-center">
             <RectangleEllipsis className="mr-1.5" size={20} />
@@ -187,7 +187,7 @@ export default function ResumePage() {
           </div>
         </CardHeader>
         <CardBody>
-          <ul className="list-disc px-6 text-sm">
+          <ul className="list-disc px-6 text-sm w-[80vw]">
             {AdditionalInfo.map((additional: any, index: any) => (
               <li key={index}>{additional}</li>
             ))}
