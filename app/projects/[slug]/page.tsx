@@ -5,6 +5,7 @@ import { Button } from "@nextui-org/button";
 
 import { Projects } from "@/lib/data";
 import { getPostBySlug } from "@/lib/mdx";
+import ProjectBreadcrumb from "@/components/ProjectBreadcrumb";
 
 const getPageContent = async (slug: any) => {
   const { meta, content } = await getPostBySlug(slug);
@@ -17,9 +18,12 @@ export default async function Page({ params }: any) {
   const project = Projects[params.slug];
 
   return (
-    <section className="flex flex-col items-center justify-center gap-6 mb-4">
-      <div className="flex flex-row items-center space-x-3">
+    <section className="flex flex-col gap-6 mb-4">
+      <ProjectBreadcrumb name={project.name} />
+      <div className="flex flex-row items-center justify-center space-x-3">
+
         <p className="text-4xl font-bold cursor-default">{project.name}</p>
+
         <Link href={project.link} target="_blank">
           <Button
             className="space-x-2 items-center hover:scale-105 transition-all"
