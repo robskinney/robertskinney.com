@@ -5,7 +5,6 @@ import { Link } from "@nextui-org/link";
 import clsx from "clsx";
 
 import { Providers } from "./providers";
-import { Toaster } from "@/components/ui/toaster";
 
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
@@ -51,7 +50,6 @@ export default function RootLayout({
             <main className="container mx-auto w-full pt-4 px-6 flex-grow">
               {children}
             </main>
-            <Toaster />
             <footer className="w-full flex items-center justify-center space-x-3 py-3">
               <Link
                 isExternal
