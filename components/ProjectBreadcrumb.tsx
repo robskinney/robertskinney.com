@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { BreadcrumbItem, Breadcrumbs } from "@nextui-org/breadcrumbs";
 

@@ -1,5 +1,5 @@
 export default function ResumeLayout({
-  children
+  children,
 }: {
   children: React.ReactNode;
 }) {

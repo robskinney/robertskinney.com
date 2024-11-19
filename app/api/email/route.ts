@@ -9,12 +9,12 @@ export async function POST(request: NextRequest) {
     service: "hotmail",
     port: 587,
     tls: {
-      ciphers: "SSLv3"
+      ciphers: "SSLv3",
     },
     auth: {
       user: process.env.MY_EMAIL,
-      pass: process.env.MY_PASSWORD
-    }
+      pass: process.env.MY_PASSWORD,
+    },
   });
 
   const mailOptions: Mail.Options = {
@@ -22,7 +22,7 @@ export async function POST(request: NextRequest) {
     to: process.env.MY_EMAIL,
     // cc: email, (uncomment this line if you want to send a copy to the sender)
     subject: `Message from ${name} (${email})`,
-    text: message
+    text: message,
   };
 
   const sendMailPromise = () =>
@@ -38,6 +38,7 @@ export async function POST(request: NextRequest) {
 
   try {
     await sendMailPromise();
+    
     return NextResponse.json({ message: "Email sent" });
   } catch (err) {
     return NextResponse.json({ error: err }, { status: 500 });

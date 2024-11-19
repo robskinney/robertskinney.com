@@ -3,12 +3,11 @@
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import {
   AppWindow,
-  BicepsFlexed,
   Book,
   CheckCheck,
   MemoryStick,
   RectangleEllipsis,
-  SquareArrowUpRight
+  SquareArrowUpRight,
 } from "lucide-react";
 import { Image } from "@nextui-org/image";
 import { Divider } from "@nextui-org/divider";

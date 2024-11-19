@@ -17,9 +17,9 @@ export default function SkillsCard() {
         <div className="flex flex-wrap justify-center items-center">
           {OverviewSkills.map((skill: string, index: number) => (
             <Chip
+              variant="flat"
               className="cursor-default m-1 hover:scale-[1.1] transition-all"
               color="secondary"
-              variant="flat"
               key={index}
             >
               {skill}

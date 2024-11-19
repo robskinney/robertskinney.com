@@ -32,10 +32,10 @@ export default function IntroductoryHeader() {
           placement="bottom"
         >
           <Chip
+            avatar={<Layers size={1} />}
+            className="cursor-default hover:scale-105 transition-all"
             color="secondary"
             variant="flat"
-            className="cursor-default hover:scale-105 transition-all"
-            avatar={<Layers size={1} />}
           >
             Full-Stack Developer
           </Chip>

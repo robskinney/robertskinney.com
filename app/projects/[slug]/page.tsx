@@ -21,7 +21,6 @@ export default async function Page({ params }: any) {
     <section className="flex flex-col gap-6 mb-4">
       <ProjectBreadcrumb name={project.name} />
       <div className="flex flex-row items-center justify-center space-x-3">
-
         <p className="text-4xl font-bold cursor-default">{project.name}</p>
 
         <Link href={project.link} target="_blank">
