@@ -4,4 +4,4 @@
 
 .prose img {
     @apply rounded-xl;  /* Or use any other rounding class like rounded-md or rounded-full */
-  }
+}
