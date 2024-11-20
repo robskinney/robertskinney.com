@@ -6,7 +6,6 @@ import { EducationInfo } from "@/lib/data";
 
 export default function EducationCard() {
   return (
-    // <Card className="flex max-w-[400px] mt-3 md:mt-0">
     <Card className="hover:scale-[1.02] transition-all">
       <CardHeader>
         <div className="flex flex-row items-center">
