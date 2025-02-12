@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { Divider } from "@nextui-org/divider";
+import { Divider } from "@heroui/react";
 import { SquareArrowUpRight } from "lucide-react";
-import { Button } from "@nextui-org/button";
+import { Button } from "@heroui/button";
 
 import { Projects } from "@/lib/data";
 import { getPostBySlug } from "@/lib/mdx";

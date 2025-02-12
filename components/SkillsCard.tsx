@@ -1,6 +1,6 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@heroui/card";
 import { BicepsFlexed } from "lucide-react";
-import { Chip } from "@nextui-org/chip";
+import { Chip } from "@heroui/chip";
 
 import { OverviewSkills } from "@/lib/data";
 

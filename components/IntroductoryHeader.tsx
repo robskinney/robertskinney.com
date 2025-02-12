@@ -1,7 +1,7 @@
-import { Chip } from "@nextui-org/chip";
-import { Divider } from "@nextui-org/divider";
-import { Spacer } from "@nextui-org/spacer";
-import { Tooltip } from "@nextui-org/tooltip";
+import { Chip } from "@heroui/chip";
+import { Divider } from "@heroui/divider";
+import { Spacer } from "@heroui/spacer";
+import { Tooltip } from "@heroui/tooltip";
 import { Database, Layers } from "lucide-react";
 
 export default function IntroductoryHeader() {

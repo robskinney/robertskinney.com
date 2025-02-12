@@ -1,13 +1,13 @@
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@heroui/card";
 import { CheckCheck } from "lucide-react";
-import { Image } from "@nextui-org/image";
+import { Image } from "@heroui/image";
 
 import { ExperienceInfo } from "@/lib/data";
 
 export default function ExperienceCard() {
   return (
     // <Card className="flex max-w-[400px] min-w-[200px] md:mt-0">
-    <Card className="hover:scale-[1.02] transition-all">
+    (<Card className="hover:scale-[1.02] transition-all">
       <CardHeader>
         <div className="flex flex-row items-center">
           <CheckCheck className="mr-1.5" size={20} />
@@ -36,6 +36,6 @@ export default function ExperienceCard() {
           ))}
         </div>
       </CardBody>
-    </Card>
+    </Card>)
   );
 }

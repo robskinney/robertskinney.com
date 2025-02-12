@@ -1,8 +1,8 @@
-import { Image } from "@nextui-org/image";
-import { Card, CardHeader, CardBody } from "@nextui-org/card";
-import { Chip } from "@nextui-org/chip";
+import { Image } from "@heroui/image";
+import { Card, CardHeader, CardBody } from "@heroui/react";
+import { Chip } from "@heroui/react";
 import Link from "next/link";
-import { Divider } from "@nextui-org/react";
+import { Divider } from "@heroui/react";
 
 import { Projects } from "@/lib/data";
 

@@ -1,4 +1,4 @@
-import { Divider } from "@nextui-org/divider";
+import { Divider } from "@heroui/react";
 
 import CoverPhoto from "@/components/CoverPhoto";
 import IntroductoryHeader from "@/components/IntroductoryHeader";

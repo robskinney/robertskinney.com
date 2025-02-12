@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardBody, CardHeader } from "@nextui-org/card";
+import { Card, CardBody, CardHeader } from "@heroui/card";
 import {
   AppWindow,
   Book,
@@ -9,10 +9,10 @@ import {
   RectangleEllipsis,
   SquareArrowUpRight,
 } from "lucide-react";
-import { Image } from "@nextui-org/image";
-import { Divider } from "@nextui-org/divider";
-import { Button } from "@nextui-org/button";
-import { Chip } from "@nextui-org/chip";
+import { Image } from "@heroui/image";
+import { Divider } from "@heroui/divider";
+import { Button } from "@heroui/button";
+import { Chip } from "@heroui/chip";
 
 import { AdditionalInfo, EducationInfo, TechnicalSkills } from "@/lib/data";
 import { ExperienceInfo } from "@/lib/data";
