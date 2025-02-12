@@ -1,17 +1,11 @@
 export const Projects: any = {
   rockettutoring: {
-    name: "Rocket Tutoring",
+    name: "Rocket Tutoring (WIP)",
     slug: "rockettutoring",
     link: "https://rockettutoring.org",
     image: "/RocketTutoringSplash.png",
     tags: ["Live Meetings", "Chat", "Stripe Payments", "Scheduling Assistant"],
     visual: "Dark",
-    about: `
-    <div class="container">
-        <h3 class="text-4xl font-bold mb-2">CelebGuessr</h3>
-        <p>Writeup coming soon!</p>
-    </div>
-          `
   },
   celebguessr: {
     name: "CelebGuessr",
@@ -20,12 +14,6 @@ export const Projects: any = {
     image: "/CGuessrSplash.png",
     tags: ["New Celebrity Daily", "Share Feature", "Helpful Hints"],
     visual: "Light",
-    about: `
-    <div class="container">
-        <h3 class="text-4xl font-bold mb-2">CelebGuessr</h3>
-        <p>Writeup coming soon!</p>
-    </div>
-          `
   },
   gorillacarts: {
     name: "Gorilla Carts",
@@ -36,9 +24,9 @@ export const Projects: any = {
       "Place Orders",
       "Modify Product BOMs",
       "Modify Customers",
-      "Modify Materials"
+      "Modify Materials",
     ],
-    visual: "Light"
+    visual: "Light",
   },
   autotrackr: {
     name: "AutoTrackr",
@@ -46,8 +34,8 @@ export const Projects: any = {
     link: "https://rskinney.pythonanywhere.com/autotrackr",
     image: "/AutoTrackrSplash.png",
     tags: ["Add/Edit Events", "Add/Edit Attendees"],
-    visual: "Light"
-  }
+    visual: "Light",
+  },
 };
 
 export const OverviewSkills = [
@@ -62,7 +50,7 @@ export const OverviewSkills = [
   "React / Next.js",
   "HTML",
   "CSS",
-  "Spanish"
+  "Spanish",
 ];
 
 export const EducationInfo = [
@@ -77,8 +65,8 @@ export const EducationInfo = [
     GradMonthYearShort: "May '23",
     GPA: "3.64/4.00",
     Additional: [
-      "MSIS Ambassador: Guided and encouraged undergraduate candidates at informational events, career fairs, and a case competition to better prepare for business graduate programs."
-    ]
+      "MSIS Ambassador: Guided and encouraged undergraduate candidates at informational events, career fairs, and a case competition to better prepare for business graduate programs.",
+    ],
   },
   {
     ImageAlt: "Indiana University's logo",
@@ -92,9 +80,9 @@ export const EducationInfo = [
     GPA: "3.75/4.00",
     Additional: [
       "Dean's List award recipient for all semesters attended.",
-      "IUDM Public Relations Chair: Organized morale-boosting events for a dedicated committee while cultivating a culture of care. Fundraised and designed social media posts with committee members, leading to a committee record of over $74,000 raised for Riley Hospital for Children in 2021."
-    ]
-  }
+      "IUDM Public Relations Chair: Organized morale-boosting events for a dedicated committee while cultivating a culture of care. Fundraised and designed social media posts with committee members, leading to a committee record of over $74,000 raised for Riley Hospital for Children in 2021.",
+    ],
+  },
 ];
 
 export const ExperienceInfo = [
@@ -109,8 +97,8 @@ export const ExperienceInfo = [
     Additional: [
       "Ingested and transformed client data into internal tools using Alteryx, SQL, Python, and more to provide reporting outputs and PowerBI dashboards, allowing for streamlined business processes.",
       "Onboarded and owned over 50 clients on an internal platform, providing tailored customizations and solutions to facilitate everyday actions taken by client and engagement teams.",
-      "Mentored new staff on best practices and software functionality, fostering a collaborative team environment and enhancing engagement outcomes through effective management and guidance"
-    ]
+      "Mentored new staff on best practices and software functionality, fostering a collaborative team environment and enhancing engagement outcomes through effective management and guidance",
+    ],
   },
   {
     ImageAlt: "Indiana University's logo",
@@ -122,8 +110,8 @@ export const ExperienceInfo = [
     ExperienceMonthandYearsShort: "Aug '22 - July '23",
     Additional: [
       "Assisted upwards of 120 students in an undergraduate business course, committing 12 hours a week to boost student development and knowledge of Information Systems, Microsoft Access, and Excel.",
-      "Collaborated with instructors and peer tutors to lead lab sessions, grade projects, and act as a mentor to improve student performance while increasing their comfort with the subject area."
-    ]
+      "Collaborated with instructors and peer tutors to lead lab sessions, grade projects, and act as a mentor to improve student performance while increasing their comfort with the subject area.",
+    ],
   },
   {
     ImageAlt: "EY's logo",
@@ -135,9 +123,9 @@ export const ExperienceInfo = [
     ExperienceMonthandYearsShort: "July '22 - Aug '22",
     Additional: [
       "Monitored relevant performance improvement trends, tools, and technologies by transforming data stored in an internal tax platform using Alteryx and PowerBI.",
-      "Identified and implemented enhancements to ongoing service delivery capabilities with feedback from client engagements, managers, and partners."
-    ]
-  }
+      "Identified and implemented enhancements to ongoing service delivery capabilities with feedback from client engagements, managers, and partners.",
+    ],
+  },
 ];
 
 export const TechnicalSkills = {
@@ -149,7 +137,7 @@ export const TechnicalSkills = {
     "AWS",
     "Microsoft Access",
     "Microsoft Excel",
-    "Microsoft Visio"
+    "Microsoft Visio",
   ],
   Programming: [
     "Python",
@@ -161,12 +149,12 @@ export const TechnicalSkills = {
     "Next.js",
     "HTML/CSS",
     "JavaScript",
-    "TypeScript"
-  ]
+    "TypeScript",
+  ],
 };
 
 export const AdditionalInfo = [
   "Designed and developed Rocket Tutoring, a full-stack tutoring platform to facilitate discovery, communication, and learning between students and tutors.",
   "Implemented an SAP S/4 ERP system from scratch for a fictional German bicycle manufacturing company, successfully enabling procurement, production, and sale of products.",
-  "Interest in all things mechanical and electronic, especially automotive. Always curious to investigate how everyday items and technologies work."
+  "Interest in all things mechanical and electronic, especially automotive. Always curious to investigate how everyday items and technologies work.",
 ];

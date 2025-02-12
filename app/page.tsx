@@ -11,7 +11,7 @@ import SkillsCard from "@/components/SkillsCard";
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-6 mb-4">
-      <div className="flex flex-col sm:flex-row items-center space-x-8 space-y-4 sm:space-y-0">
+      <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8">
         <CoverPhoto />
         <IntroductoryHeader />
       </div>

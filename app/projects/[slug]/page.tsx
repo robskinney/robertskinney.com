@@ -18,7 +18,7 @@ export default async function Page({ params }: any) {
 
   return (
     <section className="flex flex-col items-center justify-center gap-6 mb-4">
-      <div className="flex flex-row items-center space-x-3">
+      <div className="flex flex-col sm:flex-row items-center gap-3">
         <p className="text-4xl font-bold cursor-default">{project.name}</p>
         <Link href={project.link} target="_blank">
           <Button

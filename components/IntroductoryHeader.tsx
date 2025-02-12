@@ -10,13 +10,13 @@ export default function IntroductoryHeader() {
       <h1 className="font-bold text-5xl from-[#FF1CF7] to-[#b249f8] bg-clip-text text-transparent bg-gradient-to-b cursor-default">
         Hi!
       </h1>
-      <p className="text-4xl font-bold cursor-default">
+      <p className="text-4xl font-bold cursor-default text-wrap">
         I&apos;m Robert Kinney.
       </p>
       <Spacer y={3} />
       <Divider />
       <Spacer y={3} />
-      <div className="flex flex-wrap space-x-1 items-center cursor-default">
+      <div className="flex flex-wrap gap-1.5 items-center cursor-default">
         <Tooltip
           content={
             <div className="max-w-52 px-1 py-2 space-y-0.5">
@@ -32,10 +32,10 @@ export default function IntroductoryHeader() {
           placement="bottom"
         >
           <Chip
+            avatar={<Layers size={1} />}
+            className="cursor-default hover:scale-105 transition-all"
             color="secondary"
             variant="flat"
-            className="cursor-default hover:scale-105 transition-all"
-            avatar={<Layers size={1} />}
           >
             Full-Stack Developer
           </Chip>
@@ -57,10 +57,10 @@ export default function IntroductoryHeader() {
           placement="bottom"
         >
           <Chip
-            color="secondary"
-            variant="flat"
             avatar={<Database size={1} />}
             className="cursor-default hover:scale-105 transition-all"
+            color="secondary"
+            variant="flat"
           >
             Data-Driven
           </Chip>

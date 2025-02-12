@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -6,7 +7,7 @@ import {
   NavbarMenuToggle,
   NavbarBrand,
   NavbarItem,
-  NavbarMenuItem
+  NavbarMenuItem,
 } from "@nextui-org/navbar";
 import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
@@ -14,9 +15,9 @@ import NextLink from "next/link";
 import clsx from "clsx";
 import { usePathname } from "next/navigation"; // Import usePathname hook
 
-import { siteConfig } from "@/config/site";
 import ContactForm from "./ContactForm";
-import React from "react";
+
+import { siteConfig } from "@/config/site";
 
 export const Navbar = () => {
   const pathname = usePathname(); // Get the current pathname
@@ -29,10 +30,12 @@ export const Navbar = () => {
     // Trim the pathname to its base path
     const segments = pathname.split("/");
     // If there are more than 2 segments, return the first 2 segments joined
+
     if (segments.length > 2) {
       return `/${segments[1]}`;
     }
     // Otherwise, return the pathname as is
+
     return pathname;
   };
 
@@ -40,9 +43,9 @@ export const Navbar = () => {
 
   return (
     <NextUINavbar
+      isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
-      isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="flex basis-1/5 sm:basis-full justify-between items-center">
