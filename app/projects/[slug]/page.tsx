@@ -5,7 +5,6 @@ import { Button } from "@nextui-org/button";
 
 import { Projects } from "@/lib/data";
 import { getPostBySlug } from "@/lib/mdx";
-import ProjectBreadcrumb from "@/components/ProjectBreadcrumb";
 
 const getPageContent = async (slug: any) => {
   const { meta, content } = await getPostBySlug(slug);
