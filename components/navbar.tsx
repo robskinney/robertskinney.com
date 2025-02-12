@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import {
   Navbar as NextUINavbar,
   NavbarContent,
@@ -12,12 +13,11 @@ import { Link } from "@nextui-org/link";
 import { link as linkStyles } from "@nextui-org/theme";
 import NextLink from "next/link";
 import clsx from "clsx";
-import { usePathname } from "next/navigation"; // Import usePathname hook
+import { usePathname } from "next/navigation";
+
 import ContactForm from "./ContactForm";
 
 import { siteConfig } from "@/config/site";
-
-import React from "react";
 
 export const Navbar = () => {
   const pathname = usePathname(); // Get the current pathname
@@ -43,9 +43,9 @@ export const Navbar = () => {
 
   return (
     <NextUINavbar
+      isMenuOpen={isMenuOpen}
       maxWidth="xl"
       position="sticky"
-      isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
     >
       <NavbarContent className="flex basis-1/5 sm:basis-full justify-between items-center">
