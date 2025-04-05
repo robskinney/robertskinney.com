@@ -49,7 +49,7 @@ export default function RootLayout({
             <main className="container mx-auto w-full pt-4 px-6 flex-grow">
               {children}
             </main>
-            <footer className="w-full flex items-center justify-center space-x-3 py-3">
+            <footer className="w-full flex items-center justify-center space-x-3 py-3 pb-8">
               <Link
                 isExternal
                 aria-label="LinkedIn"

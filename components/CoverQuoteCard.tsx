@@ -3,16 +3,19 @@ import { Quote } from "lucide-react";
 
 export default function CoverQuoteCard() {
   return (
-    <Card className="hover:scale-[1.02] transition-all">
+    <Card>
       <CardHeader>
         <Quote size={17} />
       </CardHeader>
       <CardBody className="flex justify-start text-md sm:text-lg">
-        Since a young age, I have been fascinated by the rapidly developing
-        world of technology around us. My passion for understanding how things
-        work led me to build my first computer at 14, and has since sprouted
-        into a pursuit of knowledge through formal education, personal projects,
-        and hands-on experience.
+        As a passionate enthusiast in all things technology, I often find myself
+        digging deep into the functionality of items we interact with in
+        everyday life. From reviving a hopeless laptop with a lightweight
+        version of Linux, building a computer and watching it POST for the first
+        time, all the way up to standing with a CV axle in hand during a
+        transmission-out procedure on my car, I always find myself stepping
+        outside of my comfort zone. I have tried, failed, and tried again,
+        learning a lesson with each attempt.
       </CardBody>
     </Card>
   );

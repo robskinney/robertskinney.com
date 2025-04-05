@@ -47,6 +47,7 @@ export const Navbar = () => {
       maxWidth="xl"
       position="sticky"
       onMenuOpenChange={setIsMenuOpen}
+      isBordered
     >
       <NavbarContent className="flex basis-1/5 sm:basis-full justify-between items-center">
         <NavbarContent className="sm:hidden basis-1" justify="start">

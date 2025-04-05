@@ -6,8 +6,7 @@ import { ExperienceInfo } from "@/lib/data";
 
 export default function ExperienceCard() {
   return (
-    // <Card className="flex max-w-[400px] min-w-[200px] md:mt-0">
-    (<Card className="hover:scale-[1.02] transition-all">
+    <Card>
       <CardHeader>
         <div className="flex flex-row items-center">
           <CheckCheck className="mr-1.5" size={20} />
@@ -15,18 +14,21 @@ export default function ExperienceCard() {
         </div>
       </CardHeader>
       <CardBody>
-        <div className="flex flex-col space-y-1">
+        <div className="flex flex-col space-y-1.5">
           {ExperienceInfo.map((experience: any, index: number) => (
-            <Card key={index}>
-              <CardHeader className="flex gap-3">
+            <Card key={index} className="flex flex-col h-full justify-center">
+              <CardHeader className="flex flex-row gap-3">
                 <Image
                   alt={experience.ImageAlt}
                   height={25}
+                  width={25}
                   radius="sm"
                   src={experience.ImageSrc}
                 />
                 <div className="flex flex-col">
-                  <p className="text-md">{experience.ExperienceTitle}</p>
+                  <p className="text-md text-wrap">
+                    {experience.ExperienceTitleShort}
+                  </p>
                   <p className="text-small text-default-500">
                     {`${experience.ExperienceCompany} (${experience.ExperienceMonthandYearsShort})`}
                   </p>
@@ -36,6 +38,6 @@ export default function ExperienceCard() {
           ))}
         </div>
       </CardBody>
-    </Card>)
+    </Card>
   );
 }

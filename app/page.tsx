@@ -18,10 +18,16 @@ export default function Home() {
       <Divider />
       <div className="mx-auto w-full max-w-screen-xl px-2.5">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <CoverQuoteCard />
+          <div className="col-span-full">
+            <CoverQuoteCard />
+          </div>
+
           <EducationCard />
           <ExperienceCard />
-          <ExperienceQuoteCard />
+
+          <div className="col-span-full">
+            <ExperienceQuoteCard />
+          </div>
           <div className="col-span-full">
             <SkillsCard />
           </div>

@@ -6,7 +6,7 @@ import { OverviewSkills } from "@/lib/data";
 
 export default function SkillsCard() {
   return (
-    <Card className="hover:scale-[1.02] transition-all">
+    <Card>
       <CardHeader>
         <div className="flex flex-row items-center">
           <BicepsFlexed className="mr-1.5" size={20} />
@@ -18,7 +18,7 @@ export default function SkillsCard() {
           {OverviewSkills.map((skill: string, index: number) => (
             <Chip
               variant="flat"
-              className="cursor-default m-1 hover:scale-[1.1] transition-all"
+              className="cursor-default m-1"
               color="secondary"
               key={index}
             >

@@ -1,6 +1,18 @@
+import { AppWindow, CloudIcon, MemoryStick, Wrench } from "lucide-react";
+import React from "react";
+
+// export interface Project {
+//   name: string;
+//   slug: string;
+//   link: string;
+//   image: string;
+//   tags: string[];
+//   visual: string;
+// }
+
 export const Projects: any = {
   rockettutoring: {
-    name: "Rocket Tutoring (WIP)",
+    name: "Rocket Tutoring",
     slug: "rockettutoring",
     link: "https://rockettutoring.org",
     image: "/RocketTutoringSplash.png",
@@ -38,22 +50,38 @@ export const Projects: any = {
   },
 };
 
-export const OverviewSkills = [
+export const OverviewSkills: string[] = [
   "Python",
   "Alteryx",
   "SQL",
   "SAP",
-  "PowerBI",
+  "Power BI",
   "Microsoft Access",
   "Microsoft Excel",
+  "Microsoft Visio",
   "PowerAutomate",
-  "React / Next.js",
+  "AWS",
+  "Azure",
+  "React",
+  "TypeScript",
   "HTML",
   "CSS",
   "Spanish",
 ];
 
-export const EducationInfo = [
+export interface Education {
+  ImageAlt: string;
+  ImageSrc: string;
+  DegreeTitle: string;
+  DegreeTitleShort: string;
+  SchoolTitle: string;
+  SubSchoolTitle: string;
+  GradMonthYear: string;
+  GradMonthYearShort: string;
+  GPA: string;
+}
+
+export const EducationInfo: Education[] = [
   {
     ImageAlt: "Indiana University's logo",
     ImageSrc: "/IULogo.webp",
@@ -64,9 +92,6 @@ export const EducationInfo = [
     GradMonthYear: "May 2023",
     GradMonthYearShort: "May '23",
     GPA: "3.64/4.00",
-    Additional: [
-      "MSIS Ambassador: Guided and encouraged undergraduate candidates at informational events, career fairs, and a case competition to better prepare for business graduate programs.",
-    ],
   },
   {
     ImageAlt: "Indiana University's logo",
@@ -78,80 +103,90 @@ export const EducationInfo = [
     GradMonthYear: "August 2022",
     GradMonthYearShort: "Aug '22",
     GPA: "3.75/4.00",
-    Additional: [
-      "Dean's List award recipient for all semesters attended.",
-      "IUDM Public Relations Chair: Organized morale-boosting events for a dedicated committee while cultivating a culture of care. Fundraised and designed social media posts with committee members, leading to a committee record of over $74,000 raised for Riley Hospital for Children in 2021.",
-    ],
   },
 ];
 
-export const ExperienceInfo = [
+export interface Experience {
+  ImageAlt: string;
+  ImageSrc: string;
+  ExperienceTitle: string;
+  ExperienceTitleShort: string;
+  ExperienceCompany: string;
+  ExperienceLocation: string;
+  ExperienceMonthandYears: string;
+  ExperienceMonthandYearsShort: string;
+  Additional: string[];
+}
+
+export const ExperienceInfo: Experience[] = [
   {
     ImageAlt: "EY's logo",
     ImageSrc: "/EYLogo.png",
     ExperienceTitle: "Tax Technology Consultant Staff",
+    ExperienceTitleShort: "Tax Tech Consultant Staff",
     ExperienceCompany: "Ernst & Young",
-    ExperienceLocation: "Chicago, IL",
+    ExperienceLocation: "New York, NY",
     ExperienceMonthandYears: "July 2023 - Present",
     ExperienceMonthandYearsShort: "July '23 - Present",
     Additional: [
-      "Ingested and transformed client data into internal tools using Alteryx, SQL, Python, and more to provide reporting outputs and PowerBI dashboards, allowing for streamlined business processes.",
-      "Onboarded and owned over 50 clients on an internal platform, providing tailored customizations and solutions to facilitate everyday actions taken by client and engagement teams.",
-      "Mentored new staff on best practices and software functionality, fostering a collaborative team environment and enhancing engagement outcomes through effective management and guidance",
-    ],
-  },
-  {
-    ImageAlt: "Indiana University's logo",
-    ImageSrc: "/IULogo.webp",
-    ExperienceTitle: "Graduate Assistant",
-    ExperienceCompany: "Indiana University",
-    ExperienceLocation: "Bloomington, IN",
-    ExperienceMonthandYears: "August 2022 - July 2023",
-    ExperienceMonthandYearsShort: "Aug '22 - July '23",
-    Additional: [
-      "Assisted upwards of 120 students in an undergraduate business course, committing 12 hours a week to boost student development and knowledge of Information Systems, Microsoft Access, and Excel.",
-      "Collaborated with instructors and peer tutors to lead lab sessions, grade projects, and act as a mentor to improve student performance while increasing their comfort with the subject area.",
+      "Designed client-facing Power BIs and custom reports to visualize and evaluate key project metrics, providing improved confidence in data accuracy and decision-making.",
+      "Built and automated ETL pipelines using Python, Alteryx, and SQL that perform data validation, process complex business logic, and provide tie-out statistics that ‘walk’ through the data, reducing manual efforts taken by engagement teams while fostering confidence in data outputs.",
+      "Onboarded and supported over 60 clients on an internal platform, providing ongoing support and tailored customizations to facilitate workflows shared by client and engagement teams.",
+      "Led integration efforts between two internal platforms by creating user stories, detailed requirements, UI mock-ups, and acting as a business tester, resulting in an improved global view of services provided to clients.",
+      "Created comprehensive internal and external business and data requirements documents, process diagrams, and user guides, ensuring smooth implementation and adoption of processes across teams.",
     ],
   },
   {
     ImageAlt: "EY's logo",
     ImageSrc: "/EYLogo.png",
     ExperienceTitle: "Tax Technology Consultant Intern",
+    ExperienceTitleShort: "Tax Tech Consultant Intern",
     ExperienceCompany: "Ernst & Young",
     ExperienceLocation: "Chicago, IL",
     ExperienceMonthandYears: "July 2022 - August 2022",
     ExperienceMonthandYearsShort: "July '22 - Aug '22",
     Additional: [
-      "Monitored relevant performance improvement trends, tools, and technologies by transforming data stored in an internal tax platform using Alteryx and PowerBI.",
-      "Identified and implemented enhancements to ongoing service delivery capabilities with feedback from client engagements, managers, and partners.",
+      "Researched industry performance improvement trends and technologies, leveraging Alteryx to transform data stored in an internal platform and Power BI to create visualizations, providing actionable insights that empowered engagement teams to make data-driven decisions.",
+      "Implemented process enhancements to service delivery capabilities, incorporating feedback from client engagements, managers, and partners, resulting in more efficient workstreams.",
+      "Identified and filled gaps in the documentation of internal processes and procedures, ensuring a consistent understanding of services provided across functional groups.",
     ],
   },
 ];
 
-export const TechnicalSkills = {
-  ToolsAndEnvironments: [
-    "Alteryx",
-    "PowerBI",
-    "Tableau",
-    "SAP S/4",
-    "AWS",
-    "Microsoft Access",
-    "Microsoft Excel",
-    "Microsoft Visio",
-  ],
-  Programming: [
-    "Python",
-    "Java",
-    "R",
-    "SQL",
-    "HTML/CSS",
-    "React",
-    "Next.js",
-    "HTML/CSS",
-    "JavaScript",
-    "TypeScript",
-  ],
-};
+export interface TechnicalSkill {
+  icon: React.ReactNode;
+  title: string;
+  items: string[];
+}
+
+export const TechnicalSkills: TechnicalSkill[] = [
+  {
+    icon: React.createElement(MemoryStick, { className: "mr-1.5", size: 20 }),
+    title: "Programming Languages",
+    items: ["Python", "SQL", "Java", "R", "TypeScript", "HTML/CSS"],
+  },
+  {
+    icon: React.createElement(AppWindow, { className: "mr-1.5", size: 20 }),
+    title: "Data Tools",
+    items: [
+      "Alteryx",
+      "Power BI",
+      "Tableau",
+      "Microsoft Access",
+      "Microsoft Excel",
+    ],
+  },
+  {
+    icon: React.createElement(CloudIcon, { className: "mr-1.5", size: 20 }),
+    title: "Cloud Platforms",
+    items: ["Amazon Web Services (AWS)", "Microsoft Azure"],
+  },
+  {
+    icon: React.createElement(Wrench, { className: "mr-1.5", size: 20 }),
+    title: "Other Tools",
+    items: ["PowerAutomate", "SAP S/4", "Figma", "Microsoft Visio"],
+  },
+];
 
 export const AdditionalInfo = [
   "Designed and developed Rocket Tutoring, a full-stack tutoring platform to facilitate discovery, communication, and learning between students and tutors.",

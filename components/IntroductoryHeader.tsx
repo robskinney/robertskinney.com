@@ -33,7 +33,7 @@ export default function IntroductoryHeader() {
         >
           <Chip
             avatar={<Layers size={1} />}
-            className="cursor-default hover:scale-105 transition-all"
+            className="pl-2 pr-1 space-x-1 cursor-default hover:scale-105 transition-all"
             color="secondary"
             variant="flat"
           >
@@ -48,8 +48,8 @@ export default function IntroductoryHeader() {
                 Data-Driven
               </div>
               <div className="text-tiny cursor-default">
-                An individual who&apos;s seen their fair share of messy data and
-                isn&apos;t a stranger to performing large alterations.
+                Someone who&apos;s seen their fair share of messy data and
+                isn&apos;t a stranger to operating with large datasets.
               </div>
             </div>
           }
@@ -58,7 +58,7 @@ export default function IntroductoryHeader() {
         >
           <Chip
             avatar={<Database size={1} />}
-            className="cursor-default hover:scale-105 transition-all"
+            className="pl-2 pr-1 space-x-1 cursor-default hover:scale-105 transition-all"
             color="secondary"
             variant="flat"
           >
