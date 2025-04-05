@@ -44,7 +44,7 @@ export const Navbar = () => {
   return (
     <NextUINavbar
       isMenuOpen={isMenuOpen}
-      maxWidth="xl"
+      // maxWidth="xl"
       position="sticky"
       onMenuOpenChange={setIsMenuOpen}
       isBordered
@@ -67,7 +67,7 @@ export const Navbar = () => {
                 className={clsx(
                   linkStyles({ color: "foreground" }),
                   basePath === item.href
-                    ? "text-secondary font-medium" // Active styles
+                    ? "text-secondary" // Active styles
                     : "text-foreground" // Inactive styles
                 )}
                 href={item.href}
