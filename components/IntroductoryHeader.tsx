@@ -58,7 +58,7 @@ export default function IntroductoryHeader() {
         >
           <Chip
             avatar={<Database size={1} />}
-            className="pl-2 pr-1 space-x-1 cursor-default hover:scale-105 transition-all"
+            className="pl-2 pr-1 space-x-1 cursor-default opacity-100 hover:scale-105 transition-all"
             color="secondary"
             variant="flat"
           >

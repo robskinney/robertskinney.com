@@ -46,7 +46,13 @@ export default function RootLayout({
           backgroundImage: `linear-gradient(var(--bg-overlay-light), var(--bg-overlay-fade)), var(--bg-image)`,
         }}
       >
-        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+        <Providers
+          themeProps={{
+            attribute: "class",
+            defaultTheme: "dark",
+            enableSystem: true,
+          }}
+        >
           <div className="relative flex flex-col min-h-screen">
             <Navbar />
             <main className="container mx-auto w-full pt-4 px-6 flex-grow">
