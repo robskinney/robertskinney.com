@@ -12,6 +12,7 @@ import { Chip } from "@heroui/chip";
 
 import {
   AdditionalInfo,
+  Education,
   EducationInfo,
   TechnicalSkill,
   TechnicalSkills,
@@ -40,21 +41,22 @@ export default function ResumePage() {
       <Divider />
 
       <div className="flex flex-col items-center justify-center gap-3">
-        <Card>
+        <Card className="w-full">
           <CardHeader>
             <div className="flex flex-row items-center">
               <Book className="mr-1" size={20} />
               Education
             </div>
           </CardHeader>
-          <CardBody className="min-w-96">
-            <div className="flex flex-col space-y-2 w-[80vw]">
-              {EducationInfo.map((education: any, index: number) => (
+          <CardBody>
+            <div className="grid grid-cols-1 gap-2">
+              {EducationInfo.map((education: Education, index: number) => (
                 <Card key={index}>
                   <CardHeader className="flex items-center gap-3">
                     <Image
                       alt={education.ImageAlt}
                       height={25}
+                      className="object-cover aspect-square"
                       radius="sm"
                       src={education.ImageSrc}
                     />
@@ -76,15 +78,15 @@ export default function ResumePage() {
             </div>
           </CardBody>
         </Card>
-        <Card>
+        <Card className="w-full">
           <CardHeader>
             <div className="flex flex-row items-center">
               <CheckCheck className="mr-1" size={20} />
               Experience
             </div>
           </CardHeader>
-          <CardBody className="min-w-96">
-            <div className="flex flex-col space-y-2 w-[80vw]">
+          <CardBody>
+            <div className="grid grid-cols-1 gap-2">
               {ExperienceInfo.map((experience: any, index: number) => (
                 <Card key={index}>
                   <CardHeader className="flex items-center gap-3">
