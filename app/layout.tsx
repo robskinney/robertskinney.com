@@ -43,7 +43,7 @@ export default function RootLayout({
           fontSans.variable
         )}
         style={{
-          backgroundImage: `linear-gradient(var(--bg-overlay-light), var(--bg-overlay-fade)), url(/bg-light.png)`,
+          backgroundImage: `linear-gradient(var(--bg-overlay-light), var(--bg-overlay-fade)), var(--bg-image)`,
         }}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
