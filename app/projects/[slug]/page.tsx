@@ -4,17 +4,22 @@ import { SquareArrowUpRight } from "lucide-react";
 import { Button } from "@heroui/button";
 
 import { Projects } from "@/lib/data";
-import { getPostBySlug } from "@/lib/mdx";
+import { getPageContent } from "@/lib/mdx";
 
-const getPageContent = async (slug: any) => {
-  const { meta, content } = await getPostBySlug(slug);
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
 
-  return { meta, content };
-};
+  const project = Projects.find((item: any) => item.slug === slug);
 
-export default async function Page({ params }: any) {
-  const { content } = await getPageContent(params.slug);
-  const project = Projects[params.slug];
+  if (!project) {
+    return <p>Project not found</p>;
+  }
+
+  const { content } = await getPageContent(slug);
 
   return (
     <section className="flex flex-col items-center justify-center gap-6 mb-4">

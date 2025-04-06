@@ -13,8 +13,13 @@ export const getPostBySlug = async (slug: any) => {
 
   const { frontmatter, content } = await compileMDX({
     source: fileContent,
-    options: { parseFrontmatter: true }
+    options: { parseFrontmatter: true },
   });
 
   return { meta: { ...frontmatter, slug: realSlug }, content };
 };
+
+export async function getPageContent(slug: any) {
+  const { meta, content } = await getPostBySlug(slug);
+  return { meta, content };
+}

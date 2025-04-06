@@ -1,17 +1,17 @@
 import { AppWindow, CloudIcon, MemoryStick, Wrench } from "lucide-react";
 import React from "react";
 
-// export interface Project {
-//   name: string;
-//   slug: string;
-//   link: string;
-//   image: string;
-//   tags: string[];
-//   visual: string;
-// }
+export interface Project {
+  name: string;
+  slug: string;
+  link: string;
+  image: string;
+  tags: string[];
+  visual: string;
+}
 
-export const Projects: any = {
-  rockettutoring: {
+export const Projects: Project[] = [
+  {
     name: "Rocket Tutoring",
     slug: "rockettutoring",
     link: "https://rockettutoring.org",
@@ -19,7 +19,7 @@ export const Projects: any = {
     tags: ["Live Meetings", "Chat", "Stripe Payments", "Scheduling Assistant"],
     visual: "Dark",
   },
-  celebguessr: {
+  {
     name: "CelebGuessr",
     slug: "celebguessr",
     link: "https://rskinney.pythonanywhere.com/",
@@ -27,7 +27,7 @@ export const Projects: any = {
     tags: ["New Celebrity Daily", "Share Feature", "Helpful Hints"],
     visual: "Light",
   },
-  gorillacarts: {
+  {
     name: "Gorilla Carts",
     slug: "gorillacarts",
     link: "https://rskinney.pythonanywhere.com/gorillacarts",
@@ -40,7 +40,7 @@ export const Projects: any = {
     ],
     visual: "Light",
   },
-  autotrackr: {
+  {
     name: "AutoTrackr",
     slug: "autotrackr",
     link: "https://rskinney.pythonanywhere.com/autotrackr",
@@ -48,7 +48,7 @@ export const Projects: any = {
     tags: ["Add/Edit Events", "Add/Edit Attendees"],
     visual: "Light",
   },
-};
+];
 
 export const OverviewSkills: string[] = [
   "Python",

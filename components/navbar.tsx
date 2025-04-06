@@ -44,7 +44,7 @@ export const Navbar = () => {
   return (
     <NextUINavbar
       isMenuOpen={isMenuOpen}
-      // maxWidth="xl"
+      maxWidth="xl"
       position="sticky"
       onMenuOpenChange={setIsMenuOpen}
       isBordered
