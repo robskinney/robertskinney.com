@@ -7,11 +7,15 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}",
-    "node_modules/react-responsive-iframe-viewer/**/*.{js,ts,jsx,tsx,html}"
+    "node_modules/react-responsive-iframe-viewer/**/*.{js,ts,jsx,tsx,html}",
   ],
   theme: {
-    extend: {}
+    extend: {
+      backgroundImage: {
+        background_img: "url('/background.png')",
+      },
+    },
   },
   darkMode: "class",
-  plugins: [heroui(), require("@tailwindcss/typography")]
+  plugins: [heroui(), require("@tailwindcss/typography")],
 };

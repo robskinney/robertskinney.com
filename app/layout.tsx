@@ -39,12 +39,15 @@ export default function RootLayout({
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-repeat-y bg-top bg-auto font-sans antialiased",
           fontSans.variable
         )}
+        style={{
+          backgroundImage: `linear-gradient(var(--bg-overlay-light), var(--bg-overlay-fade)), url(/bg-light.png)`,
+        }}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
-          <div className="relative flex flex-col h-screen">
+          <div className="relative flex flex-col min-h-screen">
             <Navbar />
             <main className="container mx-auto w-full pt-4 px-6 flex-grow">
               {children}
@@ -55,14 +58,14 @@ export default function RootLayout({
                 aria-label="LinkedIn"
                 href={siteConfig.links.linkedin}
               >
-                <LinkedInIcon className="text-default-500 hover:scale-110 transition-all" />
+                <LinkedInIcon className="text-black dark:text-white hover:scale-110 transition-all" />
               </Link>
               <Link
                 isExternal
                 aria-label="Github"
                 href={siteConfig.links.github}
               >
-                <GithubIcon className="text-default-500 hover:scale-110 transition-all" />
+                <GithubIcon className="text-black dark:text-white hover:scale-110 transition-all" />
               </Link>
               <ThemeSwitch />
             </footer>

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --bg-overlay-light: rgba(255, 255, 255, 0.9);
+  --bg-overlay-fade: rgba(255, 255, 255, 0.9);
+}
+
+:root[class~="dark"] {
+  --bg-overlay-light: rgba(0, 0, 0, 0.85);
+  --bg-overlay-fade: rgba(0, 0, 0, 0.85);
+}
+
 .prose img {
-    @apply rounded-xl;  /* Or use any other rounding class like rounded-md or rounded-full */
+  @apply rounded-xl; /* Or use any other rounding class like rounded-md or rounded-full */
 }
