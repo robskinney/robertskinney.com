@@ -129,11 +129,11 @@ export const ExperienceInfo: Experience[] = [
     ExperienceMonthandYears: "July 2023 - Present",
     ExperienceMonthandYearsShort: "July '23 - Present",
     Additional: [
-      "Designed client-facing Power BIs and custom reports to visualize and evaluate key project metrics, providing improved confidence in data accuracy and decision-making.",
-      "Built and automated ETL pipelines using Python, Alteryx, and SQL that perform data validation, process complex business logic, and provide tie-out statistics that ‘walk’ through the data, reducing manual efforts taken by engagement teams while fostering confidence in data outputs.",
+      "Built and automated ETL pipelines using Python, Alteryx, and SQL that perform data validation, process complex business logic, and generate detailed reconciliation reports, reducing manual efforts taken by engagement teams while fostering confidence in data outputs.",
+      "Designed client-facing Power BIs and other custom reports to visualize key project metrics and outputs, providing improved confidence in data accuracy and decision-making.",
       "Onboarded and supported over 60 clients on an internal platform, providing ongoing support and tailored customizations to facilitate workflows shared by client and engagement teams.",
-      "Led integration efforts between two internal platforms by creating user stories, detailed requirements, UI mock-ups, and acting as a business tester, resulting in an improved global view of services provided to clients.",
-      "Created comprehensive internal and external business and data requirements documents, process diagrams, and user guides, ensuring smooth implementation and adoption of processes across teams.",
+      "Led integration efforts between two internal platforms by creating user stories, detailed requirements documents, UI mock-ups, and acting as a business tester, resulting in an improved global view of services provided to clients.",
+      "Created comprehensive business and data requirements documents, process diagrams, and user guides, ensuring smooth implementation and adoption of processes across teams.",
     ],
   },
   {
@@ -147,8 +147,8 @@ export const ExperienceInfo: Experience[] = [
     ExperienceMonthandYearsShort: "July '22 - Aug '22",
     Additional: [
       "Researched industry performance improvement trends and technologies, leveraging Alteryx to transform data stored in an internal platform and Power BI to create visualizations, providing actionable insights that empowered engagement teams to make data-driven decisions.",
-      "Implemented process enhancements to service delivery capabilities, incorporating feedback from client engagements, managers, and partners, resulting in more efficient workstreams.",
-      "Identified and filled gaps in the documentation of internal processes and procedures, ensuring a consistent understanding of services provided across functional groups.",
+      "Implemented process enhancements to service delivery capabilities by incorporating feedback from client users and managers, resulting in more efficient workstreams.",
+      "Filled gaps in the documentation of internal processes and procedures, allowing for a consistent understanding of services provided across functional groups.",
     ],
   },
 ];
@@ -163,7 +163,15 @@ export const TechnicalSkills: TechnicalSkill[] = [
   {
     icon: React.createElement(MemoryStick, { className: "mr-1.5", size: 20 }),
     title: "Programming Languages",
-    items: ["Python", "SQL", "Java", "R", "TypeScript", "HTML/CSS"],
+    items: [
+      "Python",
+      "SQL",
+      "Java",
+      "R",
+      "JavaScript",
+      "TypeScript",
+      "HTML/CSS",
+    ],
   },
   {
     icon: React.createElement(AppWindow, { className: "mr-1.5", size: 20 }),
@@ -189,7 +197,7 @@ export const TechnicalSkills: TechnicalSkill[] = [
 ];
 
 export const AdditionalInfo = [
-  "Designed and developed Rocket Tutoring, a full-stack tutoring platform to facilitate discovery, communication, and learning between students and tutors.",
+  "Designed and developed a full-stack tutoring platform to facilitate discovery, communication, and learning between students and tutors.",
   "Implemented an SAP S/4 ERP system from scratch for a fictional German bicycle manufacturing company, successfully enabling procurement, production, and sale of products.",
   "Interest in all things mechanical and electronic, especially automotive. Always curious to investigate how everyday items and technologies work.",
 ];
