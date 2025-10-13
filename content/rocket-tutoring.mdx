@@ -1,0 +1,59 @@
+---
+type: Project
+title: Rocket Tutoring
+description: A tutoring platform to connect students and tutors alike.
+publishedAt: "2025-09-15"
+link: "https://rockettutoring.org"
+image: "/RocketTutoringSplash.png"
+tags: ["NextJS", "Postgres", "API"]
+---
+
+**NOTE:** This project is currently under construction, being revamped to a B2B2C tutoring platform. Some pages will not work as expected.
+
+This program was created as a passion project, allowing students and tutors to easily connect with each other.
+
+### Course Lookup
+
+Users can easily search for available courses by navigating to their desired school from the home page, allowing them to easily get connected with tutors.
+
+![Screenshot of Indiana University courses in Rocket Tutoring.](/images/rockettutoringcourses.png)
+
+### Easy Scheduling
+
+Sessions can be quickly scheduled with tutors by looking at their scheduling assistant, automatically marking availability based on the student and tutor's schedules within the website.
+
+![Screenshot of the scheduling assistant in Rocket Tutoring.](/images/rockettutoringscheduler.png)
+
+### Video Calls
+
+Sessions can easily be handled through the Rocket Tutoring website, allowing for video chat, screen sharing, whiteboard usage, code sharing, and more. Whether users are learning ASL, writing chemistry equations, or looking to sharpen up on their Python, all can be done within the comfort of one website.
+
+![Screenshot of the video calling feature in Rocket Tutoring.](/images/rockettutoringvideocalls.png)
+
+### Chats
+
+Users can rapidly communicate with each other using the built-in chat feature, receiving email notifications for any chats they may have missed.
+
+![Screenshot of the chat function in Rocket Tutoring.](/images/rockettutoringchats.png)
+
+### Payment
+
+Accounts can be quickly topped off using the deposit function handled by Stripe. Account balances will be held at the time of requesting a session, automatically paying a tutor once the session is complete.
+
+![Screenshot of the payment function in Rocket Tutoring.](/images/rockettutoringpayment.png)
+
+### Robust Preferences
+
+Users can adjust their profiles to their liking with custom profile pictures, favorite subjects, hometown information, and more. This is also the best location to update tutor preferences, see your contacts, and even output an Excel format of transaction history for analysis.
+
+![Screenshot of the preferences function in Rocket Tutoring.](/images/rockettutoringpreferences.png)
+
+### Site Administration
+
+Administrators can add or manage existing schools or courses using AI to assist in filling out information about the entry being added to the database. This is also where tutors can be enabled after their request to join the team has been accepted.
+
+![Screenshot of the site administration function in Rocket Tutoring.](/images/rockettutoringadmin.png)
+
+### Tech Stack
+
+This website uses Next.js (a React framework) with the App router and TypeScript to portray its webpages. Backend data is stored in a Postgresql database using Supabase as an ORM, alongside documents such as resumes or profile pictures being stored in an AWS bucket. Meetings are held using the Dyte video calling API.

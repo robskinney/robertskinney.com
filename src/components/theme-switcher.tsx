@@ -1,0 +1,9 @@
+import { ThemeSwitcher } from "~/components/ui/shadcn-io/theme-switcher";
+import { useState } from "react";
+const Example = () => {
+  const [theme, setTheme] = useState<"light" | "dark" | "system">("system");
+  return (
+    <ThemeSwitcher defaultValue="system" onChange={setTheme} value={theme} />
+  );
+};
+export default Example;

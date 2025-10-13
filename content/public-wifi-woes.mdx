@@ -1,0 +1,44 @@
+---
+type: Blog
+title: Public Wi-Fi Woes
+description: A late-night coding session is almost foiled by Starbucks' Wi-Fi.
+publishedAt: "2025-10-10"
+---
+
+Sitting in a public corner outside of a Starbucks on a warm summer night, I opened the lid of my laptop
+to work on a personal coding project. As I connected to the store's Wi-Fi, I ran into a new issue I had never seen before:
+
+![A screenshot of the Starbucks Wi-Fi portal noting "Our store is currently closed. Please join us during normal store business hours."](/images/starbucks-closed-image.png)
+
+At first glance, this indicates that Starbucks doesn't allow users to access their Wi-Fi network after-hours.
+
+Naturally, I unlocked my iPhone and navigated to the Settings app to enable my Personal
+Hotspot. As I was going through the motions, I noticed something interesting. My phone was already connected to the Wi-Fi. And it was working. At a second glance, it appears the coffee chain doesn't allow _new_ users to connect to their Wi-Fi after doors have closed.
+
+This creates the opportunity for a simple (and arguably uninteresting) loophole: What if I tricked the Wi-Fi network into thinking I was connecting from my phone
+rather than my MacBook? I figured out this could be accomplished with a few quick steps.
+
+1. Find (and note down) the MAC address of the device that has previously connected to the network.
+2. Disconnect that device from the network.
+3. Mask the MAC address of the desired device with the previously noted address.
+4. Connect to the Wi-Fi network with the desired device.
+
+I admit I needed to do a little bit of Googling for two of these steps, but I was able to connect without a hiccup.
+
+![A screenshot of a terminal window attempting to ping Google's DNS server successfully.](/images/terminal-ping-test.png)
+
+Ever been on an airplane and been greeted with extreme Wi-Fi pricing on a laptop, while you can gain free access with a phone through your carrier? If you've been on an American Airlines flight as a T-Mobile customer, probably. You could use the previous trick as a workaround to switch access between devices as you please, but I have also solved this in a different way.
+
+![A screenshot of T-Mobile's access portal to connect to Wi-Fi on an American Airlines flight.](/images/t-mobile-viasat.webp)
+
+If you have access to a Chromium-based browser, there are a couple easy steps that can be followed to trigger the mobile phone Wi-Fi pricing tab.
+
+1. Connect to the Wi-Fi network with your laptop. Allow the captive portal page to open.
+2. Enter your web browser's developer tools menu, then toggle the device toolbar. From there, I like to select the sizing of an iPhone 12 Pro.
+3. Within the console drawer, navigate to the "Network conditions" tab. From there, update the "User agent" variable to reference "Chrome - iPhone".
+4. Refresh or navigate to the portion of the captive portal where internet connectivity can be purchased.
+5. Go through the motions as you would when connecting with your phone.
+
+![A screenshot of the fully configured browser developer tools window.](/images/browser-devtools.png)
+
+I’m always ecstatic when I find a way to solve little tech issues, no matter how small. I’ve found myself going back to these steps many times, and I hope you don't have to. But if you do, now you know some ways to get around it.

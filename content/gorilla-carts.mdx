@@ -1,0 +1,65 @@
+---
+type: Project
+title: Gorilla Carts
+description: A simple inventory management system.
+publishedAt: "2025-09-15"
+link: "https://rskinney.pythonanywhere.com/gorillacarts"
+image: "/GorillaCartsSplash.png"
+tags: ["Flask", "Python", "Bootstrap"]
+---
+
+This program was created during a graduate business course, using over 1,000 lines of logic to perform business functions required by a fictional client, Gorilla Carts. Meant to be interacted with
+by employees of the organization, there are several tabs that allow an employee to perform their daily business functions. This page will describe the functionality
+of these capabilities divided into categories of customers, products, materials, suppliers, and orders.
+
+### Customer Tracking
+
+This is a simple function of the website, allowing the user to add, edit, and delete customers in a SQLite database through a simple user interface provided by the application.
+
+![Screenshot of customer listing page in Gorilla Carts.](/images/customers.webp)
+
+### Product Tracking
+
+This function of the website allows the user to view products available for sale to its customers. Clicking on the Product ID of each product will allow the user to quickly view the Bill of Materials (BOM) for that particular product.
+
+![Screenshot of product listing page in Gorilla Carts.](/images/products.webp)
+
+Exploding the bill of materials (BOM) of a product allows procurement in the organization to plan appropriately when purchasing raw materials. Visualizing item numbers and quantities of raw materials required is also a very important part prior to production, as lacking the correct amount of materials for production could halt a production line.
+
+![Screenshot of bill of materials (BOM) page in Gorilla Carts.](/images/bom.webp)
+
+### Materials Tracking
+
+After gaining an understanding of what materials are required for production of a product, another important factor in planning is understanding how many raw materials are available. These quantities as well as information about materials can then be adjusted based on receival of new materials or changes upon an inventory count.
+
+![Screenshot of materials page in Gorilla Carts.](/images/materials.webp)
+
+### Supplier Tracking
+
+This is another simple but necessary function of the website, allowing the user to add, edit, and delete suppliers in a SQL database through a simple user interface provided by the application.
+
+![Screenshot of suppliers page in Gorilla Carts.](/images/suppliers.webp)
+
+### Order Tracking
+
+This screen allows the user to view what orders have been placed, the customer who is expecting the order, the employee who placed the order, as well as the order total cost for the customer.
+
+![Screenshot of orders page in Gorilla Carts.](/images/orders.webp)
+
+Viewing an invoice from an order will allow for further details that may be necesary during production or for quality control purposes, such as when the order was placed and what particular product was purchased by the customer.
+
+![Screenshot of an invoice page in Gorilla Carts.](/images/invoice.webp)
+
+### Order Placing
+
+As the most complex portion of the website, it is also necessary that employees are able to place orders for customers on this website. Necessary information includes the customer ordering, the employee that is placing the order, as well as the particular product being purchased. When an order is placed, the necessary amount of materials for production are allocated to this product and are removed from the existing inventory.
+
+![Screenshot of the order placement page in Gorilla Carts.](/images/placeorder.webp)
+
+While this functionality may seem simple, it is actually quite complex as it has two strict requirements: 1) An order may not be placed if there are not enough raw materials determined by the BOM and order quantity to produce any particular product, and 2) No order may place an order for more than 10 of the same cart. An example of the first error has been shown below.
+
+![Screenshot of the order error page in Gorilla Carts.](/images/ordererror.webp)
+
+### Tech Stack
+
+This project uses Flask and Python as its backend framework to connect to a SQLite database, painting relevant information on HTML templates using Bootstrap for CSS.
