@@ -56,8 +56,6 @@ const Footer = ({
 }: FooterProps) => {
   const { theme, setTheme } = useTheme();
 
-  console.log(theme);
-
   return (
     <footer
       className="pb-10 pt-20 bg-bottom"

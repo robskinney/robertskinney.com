@@ -48,15 +48,11 @@ export default function Experience() {
               asChild
               className="text-muted-foreground px-6 pt-4"
             >
-              <ul className="list-disc px-4">
-                {item.content.map((item, index) => (
-                  <li>
-                    <P key={index} className="text-foreground">
-                      {item}
-                    </P>
-                  </li>
-                ))}
-              </ul>
+              {item.content.map((contentItem, index) => (
+                <li key={index}>
+                  <P className="text-foreground">{contentItem}</P>
+                </li>
+              ))}
             </AccordionContent>
           </AccordionItem>
         ))}

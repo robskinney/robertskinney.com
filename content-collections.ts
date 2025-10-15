@@ -9,17 +9,18 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypePrettyCode from "rehype-pretty-code";
 import rehypeSlug from "rehype-slug";
 import remarkGfm from "remark-gfm";
+import z from "zod";
 
 const posts = defineCollection({
   name: "posts",
   directory: "content",
   include: "**/*.mdx",
-  schema: (z) => ({
+  schema: z.object({
     type: z.enum(["Blog", "Project"]),
     title: z.string(),
     description: z.string(),
     publishedAt: z.string().date(),
-    link: z.string().url().optional(),
+    link: z.url().optional(),
     image: z.string().optional(),
     tags: z.array(z.string()).optional(),
   }),
