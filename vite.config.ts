@@ -9,10 +9,11 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
-    tsConfigPaths(),
+    tsConfigPaths({
+      projects: ["./tsconfig.json"],
+    }),
     tanstackStart(),
-    contentCollections(),
-    // react's vite plugin must come after start's vite plugin
     viteReact(),
+    contentCollections(),
   ],
 });
