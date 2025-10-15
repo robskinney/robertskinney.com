@@ -1,18 +1,13 @@
 {
-  "name": "portfolio-v2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "robertskinney.com",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build && tsc --noEmit",
     "start": "node .output/server/index.mjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "module",
-  "packageManager": "pnpm@10.8.0",
   "dependencies": {
     "@content-collections/core": "^0.11.1",
     "@content-collections/mdx": "^0.2.2",
