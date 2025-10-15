@@ -24,7 +24,7 @@ export const Route = createRootRoute({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "TanStack Start Starter",
+        title: "Robert Kinney",
       },
     ],
     links: [
@@ -32,6 +32,7 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", href: "/favicon.svg" },
     ],
   }),
   component: RootComponent,
