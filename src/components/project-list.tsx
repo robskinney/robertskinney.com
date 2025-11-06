@@ -15,7 +15,7 @@ export function ProjectList({ posts }: { posts: Posts }) {
           key={post._meta.path}
           // className="flex flex-col space-y-1 mb-4"
         >
-          <Card className="flex flex-col py-3 px-4 gap-3 shadow-s hover:shadow-l transition-all">
+          <Card className="flex flex-col h-full py-3 px-4 gap-3 shadow-s hover:shadow-l transition-all">
             <p className="tracking-tight">{post.title}</p>
             {post.tags && (
               <div className="flex flex-wrap gap-1">

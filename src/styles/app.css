@@ -57,8 +57,8 @@
   --secondary-foreground: hsl(0 0% 3.1373%);
   --muted: hsl(0 0% 96.0784%);
   --muted-foreground: hsl(0 0% 32.1569%);
-  --accent: hsl(221.3793 100% 94.3137%);
-  --accent-foreground: hsl(216.3158 76% 49.0196%);
+  --accent: hsl(275.209 70% 90.7255%);
+  --accent-foreground:  hsl(275.8294 92.1397% 55.098%);
   --destructive: hsl(358.4416 74.7573% 59.6078%);
   --destructive-foreground: hsl(0 0% 100%);
   --border: hsl(240 17.0732% 91.9608%);
@@ -123,8 +123,8 @@
   --secondary-foreground: hsl(0 0% 94.1176%);
   --muted: hsl(226.6667 9.6774% 18.2353%);
   --muted-foreground: hsl(0 0% 62.7451%);
-  --accent: hsl(217.2414 32.5843% 17.451%);
-  --accent-foreground: hsl(208.209 100% 73.7255%);
+  --accent: hsl(275.8294 20.1397% 55.098%);
+  --accent-foreground:  hsl(275.209 70% 90.7255%);
   --destructive: hsl(0 90.604% 70.7843%);
   --destructive-foreground: hsl(0 0% 100%);
   --border: hsl(222.8571 6.422% 21.3725%);
@@ -185,8 +185,8 @@
     display: none;
   }
   * {
-    -ms-overflow-style: none; /* IE + Edge */
-    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
 

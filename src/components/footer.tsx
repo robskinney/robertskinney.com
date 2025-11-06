@@ -3,6 +3,8 @@ import { Logo } from "./navbar/logo";
 import MaxWidthWrapper from "./max-width-wrapper";
 import { ThemeSwitcher } from "./ui/shadcn-io/theme-switcher";
 import { useTheme } from "./theme-provider";
+import { Button } from "./ui/button";
+import { Download } from "lucide-react";
 
 interface MenuItem {
   title: string;
@@ -65,15 +67,21 @@ const Footer = ({
     >
       <MaxWidthWrapper className="container">
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div className="hidden sm:block col-span-2">
+          <div className="flex flex-col items-center justify-center col-span-2 pb-5 sm:pb-0 sm:block sm:col-span-2 space-y-2">
             <div className="flex flex-row items-center gap-1 font-semibold">
               {logo.icon}
               {`Robert Kinney`}
             </div>
+            <a href="/Kinney_Robert_Resume.pdf" download>
+              <Button size="sm" className="text-xs" variant="outline">
+                <Download />
+                Download Resume
+              </Button>
+            </a>
           </div>
           {menuItems.map((section, sectionIdx) => (
             <div className="text-center sm:text-right" key={sectionIdx}>
-              <h3 className="mb-4 font-bold">{section.title}</h3>
+              <h3 className="mb-4 mt-1 font-bold">{section.title}</h3>
               <ul className="text-muted-foreground space-y-4">
                 {section.links.map((link, linkIdx) =>
                   link.isExternal ? (
@@ -102,7 +110,7 @@ const Footer = ({
             </div>
           ))}
         </div>
-        <div className="flex flex-row items-center justify-between gap-3 py-6 mt-6 text-muted-foreground border-t text-sm font-medium">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 mt-6 text-muted-foreground border-t text-sm font-medium">
           <p>{copyright}</p>
           <ThemeSwitcher
             defaultValue="system"

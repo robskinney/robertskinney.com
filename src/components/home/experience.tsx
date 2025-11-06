@@ -9,6 +9,7 @@ import {
 import { Separator } from "~/components/ui/separator";
 import { H5, Muted, P } from "~/components/ui/typography";
 import { experience } from "~/lib/data";
+import { Card } from "../ui/card";
 
 export default function Experience() {
   return (
@@ -46,7 +47,7 @@ export default function Experience() {
 
             <AccordionContent
               asChild
-              className="text-muted-foreground px-6 pt-4"
+              className="flex flex-col text-muted-foreground px-10 py-4 gap-2"
             >
               {item.content.map((contentItem, index) => (
                 <li key={index}>

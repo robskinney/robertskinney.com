@@ -1,4 +1,5 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useState } from "react";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Button } from "~/components/ui/button";
 import { Logo } from "./logo";
 import { NavMenu } from "./nav-menu";
@@ -8,46 +9,24 @@ import { Mail } from "lucide-react";
 
 const Navbar = () => {
   const [isSticky, setIsSticky] = useState(false);
-  const progressRef = useRef<HTMLDivElement | null>(null);
+
+  const { scrollY, scrollYProgress } = useScroll();
 
   useEffect(() => {
-    let ticking = false;
+    const unsubscribe = scrollY.on("change", (y) => setIsSticky(y > 8));
+    return () => unsubscribe();
+  }, [scrollY]);
 
-    const handleScroll = () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          const scrolled = window.scrollY;
-          const height =
-            document.documentElement.scrollHeight -
-            document.documentElement.clientHeight;
-          const progress = scrolled / height;
-
-          // update sticky state
-          if (isSticky !== scrolled > 15) {
-            setIsSticky(scrolled > 15);
-          }
-
-          // update CSS variable directly
-          if (progressRef.current) {
-            progressRef.current.style.setProperty(
-              "--scroll-progress",
-              progress.toString()
-            );
-          }
-
-          ticking = false;
-        });
-        ticking = true;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isSticky]);
+  // Optional: smooth animation for the progress bar
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 200,
+    damping: 30,
+    mass: 0.3,
+  });
 
   return (
     <nav
-      className={`fixed w-full bg-sidebar backdrop-blur-xl border-b mx-auto transition-all duration-500 z-50
+      className={`fixed w-full bg-sidebar/85 backdrop-blur-xl border-b mx-auto transition-all duration-500 z-50
         ${isSticky ? "h-16 shadow-md" : "h-24 my-auto"}
       `}
     >
@@ -72,15 +51,23 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Progress bar (CSS-driven, GPU accelerated) */}
+      {/* Progress bar using Framer Motion */}
       {isSticky && (
-        <div
-          ref={progressRef}
+        <motion.div
           className="h-[2px] absolute bottom-0 left-0 w-full bg-transparent overflow-hidden"
+          style={{ scaleX, originX: 0 }}
         >
-          <div className="h-full bg-primary origin-left scale-x-[var(--scroll-progress,0)] transition-transform duration-500 ease-out" />
-        </div>
+          <div className="h-full bg-primary w-full" />
+        </motion.div>
       )}
+
+      {/* Sticky detection */}
+      {/* <div
+        className="absolute top-0 left-0 w-full h-full pointer-events-none"
+        style={{ top: 0 }}
+      >
+        <ScrollObserver setIsSticky={setIsSticky} />
+      </div> */}
     </nav>
   );
 };
