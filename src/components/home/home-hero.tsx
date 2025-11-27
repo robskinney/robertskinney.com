@@ -8,7 +8,12 @@ export default function HomeHero() {
     <Card className="relative w-full h-[calc(100vh-14rem)] overflow-hidden">
       <img
         alt="Robert Kinney's Headshot"
-        src="/robert-ny.jpeg"
+        src="/robert-ny.webp"
+        width={1600}
+        height={1067}
+        loading="eager"
+        decoding="async"
+        fetchPriority="high"
         className="absolute inset-0 w-full h-full object-cover object-[60%_center] sm:object-[30%_center]"
       />
 
