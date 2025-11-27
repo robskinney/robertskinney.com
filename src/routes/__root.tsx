@@ -32,8 +32,6 @@ export const Route = createRootRoute({
         rel: "stylesheet",
         href: appCss,
       },
-      // Preload the main hero image to improve LCP
-      { rel: "preload", as: "image", href: "/robert-ny.webp" },
       { rel: "icon", href: "/favicon.svg" },
     ],
   }),
