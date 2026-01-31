@@ -10,11 +10,15 @@ import FadeUpSection from "@/components/animations/fade-up-section.astro";
 import HeroImage from "@/components/sections/home/hero-image.astro";
 import AboutMe from "@/components/sections/home/about-me.astro";
 import Technologies from "@/components/sections/home/technologies.astro";
+import Experience from "@/components/sections/home/experience.astro";
 ---
 
-<BaseLayout>
-  <!-- <div class="flex flex-col w-full gap-2"> -->
-
+<BaseLayout
+  content={{
+    title: "Robert Kinney",
+    description: "Robert Kinney's Portfolio | Home Page",
+  }}
+>
   <section
     class="flex flex-col h-[calc(100svh-6rem)] w-full mx-auto px-3 sm:px-6 md:px-12 max-w-7xl"
   >
@@ -34,6 +38,10 @@ import Technologies from "@/components/sections/home/technologies.astro";
 
     <FadeUpSection>
       <Technologies />
+    </FadeUpSection>
+
+    <FadeUpSection>
+      <Experience />
     </FadeUpSection>
   </MaxWidthWrapper>
   <!-- </div> -->
