@@ -1,0 +1,40 @@
+---
+import { Image } from "astro:assets";
+import { getImage } from "astro:assets";
+
+import { DatabaseZap, Layers } from "@lucide/astro";
+
+import heroImage from "../../../../public/images/robert-ny-1600.webp";
+// const optimizedImage = await getImage({
+//   src: heroImage,
+//   format: "webp",
+// });
+---
+
+<div class="card relative w-full h-full overflow-hidden drop-shadow-lg">
+  <Image
+    src={heroImage}
+    alt="Robert Kinney's Headshot"
+    class="absolute inset-0 w-full h-full object-cover object-[60%_center] lg:object-[30%_center]"
+  />
+
+  <div
+    class="absolute inset-0 flex flex-row items-end justify-between p-3 gap-2"
+  >
+    <div
+      class="card relative flex flex-col p-3 bg-secondary/80 dark:bg-card/60 backdrop-blur-sm border-none gap-2"
+    >
+      <h1 class="text-xl">Robert Kinney</h1>
+      <div class="flex flex-wrap gap-1.5 items-center cursor-default">
+        <div class="badge-secondary flex gap-1.5 rounded-full">
+          <Layers class="size-3" />
+          <p class="text-wrap">Full-Stack Developer</p>
+        </div>
+        <div class="badge-secondary flex gap-1.5 rounded-full">
+          <DatabaseZap class="size-3" />
+          <p class="text-wrap">Data-Driven</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

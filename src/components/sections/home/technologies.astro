@@ -1,0 +1,95 @@
+---
+import Python from "@/components/technology-icons/languages/python.astro";
+import SQL from "@/components/technology-icons/languages/sql.astro";
+import Pandas from "@/components/technology-icons/languages/pandas.astro";
+import HTML from "@/components/technology-icons/languages/html.astro";
+import TypesScript from "@/components/technology-icons/languages/typescript.astro";
+import JavaScript from "@/components/technology-icons/languages/javascript.astro";
+import R from "@/components/technology-icons/languages/r.astro";
+
+import Alteryx from "@/components/technology-icons/data-tools/alteryx.astro";
+import PowerBI from "@/components/technology-icons/data-tools/power-bi.astro";
+import Tableau from "@/components/technology-icons/data-tools/tableau.astro";
+import MicrosoftExcel from "@/components/technology-icons/data-tools/microsoft-excel.astro";
+import MicrosoftAccess from "@/components/technology-icons/data-tools/microsoft-access.astro";
+
+import AWS from "@/components/technology-icons/cloud-platforms/aws.astro";
+import Azure from "@/components/technology-icons/cloud-platforms/azure.astro";
+import GoogleCloud from "@/components/technology-icons/cloud-platforms/google-cloud.astro";
+
+import Figma from "@/components/technology-icons/other/figma.astro";
+import PowerAutomate from "@/components/technology-icons/other/powerautomate.astro";
+import SAP from "@/components/technology-icons/other/sap.astro";
+import Visio from "@/components/technology-icons/other/visio.astro";
+
+const technologies = [
+  {
+    name: "Languages",
+    items: [
+      { name: "Python", icon: Python },
+      { name: "SQL", icon: SQL },
+      { name: "Pandas", icon: Pandas },
+      { name: "HTML/CSS", icon: HTML },
+      { name: "TypeScript", icon: TypesScript },
+      { name: "JavaScript", icon: JavaScript },
+      { name: "R", icon: R },
+    ],
+  },
+  {
+    name: "Data Tools",
+    items: [
+      { name: "Alteryx", icon: Alteryx },
+      { name: "Power BI", icon: PowerBI },
+      { name: "Tableau", icon: Tableau },
+      { name: "Microsoft Access", icon: MicrosoftExcel },
+      { name: "Microsoft Excel", icon: MicrosoftAccess },
+    ],
+  },
+  {
+    name: "Cloud Platforms",
+    items: [
+      { name: "Amazon Web Services", icon: AWS },
+      { name: "Microsoft Azure", icon: Azure },
+      { name: "Google Cloud", icon: GoogleCloud },
+    ],
+  },
+  {
+    name: "Other",
+    items: [
+      { name: "Figma", icon: Figma },
+      { name: "Microsoft Visio", icon: Visio },
+      { name: "SAP S/4", icon: SAP },
+      { name: "Microsoft PowerAutomate", icon: PowerAutomate },
+    ],
+  },
+];
+---
+
+<div class="flex flex-col gap-3 pb-3">
+  <div class="w-full border-b border-muted-foreground/10 my-6"></div>
+
+  <h5
+    class="scroll-m-20 text-md font-semibold text-muted-foreground tracking-tight"
+  >
+    Technologies
+  </h5>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    {
+      technologies.map((section) => (
+        <div class="card md:last:col-span-3">
+          <header>{section.name}</header>
+
+          <section class="flex flex-wrap gap-2">
+            {section.items.map((item) => (
+              <span class="badge-outline py-1 px-2">
+                <item.icon class="size-4" />
+                <p class="ml-0.5">{item.name}</p>
+              </span>
+            ))}
+          </section>
+        </div>
+      ))
+    }
+  </div>
+</div>

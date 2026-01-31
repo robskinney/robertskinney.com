@@ -1,0 +1,78 @@
+---
+import Navbar from "@/components/navbar.astro";
+import "../styles/global.css";
+const { content } = Astro.props;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <title>{content?.title ?? "Robert Kinney"}</title>
+    <meta name="generator" content={Astro.generator} />
+
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem("themeMode");
+          if (
+            stored
+              ? stored === "dark"
+              : matchMedia("(prefers-color-scheme: dark)").matches
+          ) {
+            document.documentElement.classList.add("dark");
+          }
+        } catch (_) {}
+      })();
+
+      // Function to update theme-color meta tag
+      const updateThemeColor = (dark) => {
+        const metaThemeColor = document.querySelector(
+          'meta[name="theme-color"]',
+        );
+        if (metaThemeColor) {
+          // Use your actual navbar color here
+          metaThemeColor.setAttribute("content", dark ? "#1a1a1a" : "#ffffff");
+        }
+      };
+
+      // Move apply function outside the IIFE so the event listener can access it
+      const apply = (dark) => {
+        document.documentElement.classList.toggle("dark", dark);
+        updateThemeColor(dark);
+        try {
+          localStorage.setItem("themeMode", dark ? "dark" : "light");
+        } catch (_) {}
+      };
+
+      // Update on initial load
+      updateThemeColor(document.documentElement.classList.contains("dark"));
+
+      document.addEventListener("basecoat:theme", (event) => {
+        const mode = event.detail?.mode;
+        apply(
+          mode === "dark"
+            ? true
+            : mode === "light"
+              ? false
+              : !document.documentElement.classList.contains("dark"),
+        );
+      });
+    </script>
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <Navbar />
+
+    <main class="my-3">
+      <slot />
+    </main>
+
+    <script src="https://unpkg.com/taos@1.0.5/dist/taos.js"></script>
+  </body>
+</html>

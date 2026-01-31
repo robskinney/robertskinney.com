@@ -1,0 +1,30 @@
+---
+import { Image } from "astro:assets";
+import { Mail } from "@lucide/astro";
+import siteFavicon from "../../public/favicon.svg";
+---
+
+<nav class="sticky top-0 w-full bg-sidebar border-b z-50 h-20">
+  <div class="h-full flex items-center justify-between px-4 py-5">
+    <a href="/" class="underline">
+      <Image
+        src={siteFavicon}
+        loading="eager"
+        alt="A purple square outline logo."
+        class="transition-all hover:rotate-45"
+      />
+    </a>
+
+    <div class="flex items-center gap-3">
+      <a
+        href="mailto:robertskinney@outlook.com?Subject=Inquiry to Robert Kinney"
+      >
+        <!-- <Button variant="default" size="sm" className="rounded-full"> -->
+        <button class="btn btn-sm rounded-full">
+          <Mail />
+          Contact Me
+        </button>
+      </a>
+    </div>
+  </div>
+</nav>

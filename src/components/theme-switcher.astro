@@ -1,0 +1,15 @@
+---
+import { Moon, Sun } from "@lucide/astro";
+---
+
+<button
+  type="button"
+  aria-label="Toggle dark mode"
+  data-tooltip="Toggle dark mode"
+  data-side="bottom"
+  onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))"
+  class="btn-icon-outline size-8"
+>
+  <span class="hidden dark:block"><Sun /></span>
+  <span class="block dark:hidden"><Moon /></span>
+</button>
