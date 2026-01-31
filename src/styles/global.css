@@ -2,6 +2,8 @@
 @import "basecoat-css";
 @import "./theme.css";
 
+@plugin '@tailwindcss/typography';
+
 @custom-variant taos (&.taos-init:where(:not(.taos-animate)));
 
 html.js :where([class*="taos:"]:not(.taos-init)) {

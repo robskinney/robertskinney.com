@@ -1,0 +1,90 @@
+---
+import MaxWidthWrapper from "@/components/max-width-wrapper.astro";
+import BaseLayout from "@/layouts/base-layout.astro";
+import Prose from "@/components/prose.astro";
+import { ChevronLeft, ExternalLinkIcon } from "@lucide/astro";
+import { getCollection, render } from "astro:content";
+// 1. Generate a new path for every collection entry
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+  return projects.map((project) => ({
+    params: { id: project.id },
+    props: { project },
+  }));
+}
+// 2. For your template, you can get the entry directly from the prop
+const { project } = Astro.props;
+const { Content } = await render(project);
+---
+
+<BaseLayout
+  content={{
+    title: "Robert Kinney | Projects",
+    description: `Robert Kinney's Portfolio | ${project.data.title}`,
+  }}
+>
+  <MaxWidthWrapper>
+    <article class="container relative">
+      <ol
+        class="text-muted-foreground flex flex-wrap items-center gap-1.5 text-sm wrap-break-word sm:gap-2.5"
+      >
+        <li class="inline-flex items-center gap-1.5">
+          <a href="/projects" class="hover:text-foreground transition-colors"
+            >Projects</a
+          >
+        </li>
+        <li>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="size-3.5"><path d="m9 18 6-6-6-6"></path></svg
+          >
+        </li>
+        <li class="inline-flex items-center gap-1.5">
+          <span class="text-foreground font-normal">{project.data.title}</span>
+        </li>
+      </ol>
+
+      <div class="my-4">
+        <h2 class="scroll-m-20 text-xl font-semibold tracking-tight">
+          {project.data.title}
+        </h2>
+        {
+          project.data.link && (
+            <a
+              href={project.data.link}
+              class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <p>Try it out</p>
+              <ExternalLinkIcon class="size-3" />
+            </a>
+          )
+        }
+      </div>
+
+      <Prose>
+        <Content />
+      </Prose>
+
+      <hr class="mt-12" />
+
+      <div class="flex justify-center pt-6 lg:pt-10">
+        <a href="/projects">
+          <div class="btn-ghost">
+            <ChevronLeft class="mr-2 h-4 w-4" />
+            Return to Projects
+          </div>
+        </a>
+      </div>
+    </article>
+  </MaxWidthWrapper>
+</BaseLayout>
