@@ -11,6 +11,7 @@ import HeroImage from "@/components/sections/home/hero-image.astro";
 import AboutMe from "@/components/sections/home/about-me.astro";
 import Technologies from "@/components/sections/home/technologies.astro";
 import Experience from "@/components/sections/home/experience.astro";
+import GrowInSection from "@/components/animations/grow-in-section.astro";
 ---
 
 <BaseLayout
@@ -19,6 +20,7 @@ import Experience from "@/components/sections/home/experience.astro";
     description: "Robert Kinney's Portfolio | Home Page",
   }}
 >
+  <!-- <GrowInSection> -->
   <section
     class="flex flex-col h-[calc(100svh-6rem)] w-full mx-auto px-3 sm:px-6 md:px-12 max-w-7xl"
   >
@@ -30,6 +32,7 @@ import Experience from "@/components/sections/home/experience.astro";
       />
     </div>
   </section>
+  <!-- </GrowInSection> -->
 
   <MaxWidthWrapper>
     <FadeUpSection>

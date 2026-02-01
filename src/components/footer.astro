@@ -1,22 +1,39 @@
 ---
 import { Image } from "astro:assets";
 import { Download } from "@lucide/astro";
-import siteFavicon from "../../public/favicon.svg";
-import MaxWidthWrapper from "./max-width-wrapper.astro";
-import ThemeSwitcher from "./theme-switcher.astro";
 
-export const footerItems = [
+import GitHub from "@/components/icons/social/github.astro";
+import LinkedIn from "@/components/icons/social/linkedin.astro";
+
+import siteFavicon from "../../public/favicon.svg";
+import ThemeSwitcher from "@/components/theme-switcher.astro";
+
+type FooterLink = {
+  isExternal: boolean;
+  text: string;
+  icon?: any;
+  url: string;
+};
+
+type FooterSection = {
+  title: string;
+  links: FooterLink[];
+};
+
+export const footerSections: FooterSection[] = [
   {
     title: "Social",
     links: [
       {
         isExternal: true,
         text: "GitHub",
+        icon: GitHub,
         url: "https://github.com/robskinney",
       },
       {
         isExternal: true,
         text: "LinkedIn",
+        icon: LinkedIn,
         url: "https://www.linkedin.com/in/robertskinney",
       },
     ],
@@ -31,60 +48,55 @@ export const footerItems = [
 ];
 ---
 
-<footer class="pb-10 pt-20 bg-bottom">
-  <MaxWidthWrapper>
-    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-      <div
-        class="flex flex-col items-center justify-center col-span-2 pb-5 sm:pb-0 sm:block sm:col-span-2 space-y-2"
-      >
-        <div class="flex flex-row items-center gap-1 font-semibold">
-          <Image
-            src={siteFavicon}
-            loading="eager"
-            alt="A purple square outline logo."
-          />
-          <p>Robert Kinney</p>
-        </div>
-        <a href="/Kinney_Robert_Resume.pdf" download>
-          <div class="btn-sm-outline text-xs">
-            <Download />
-            Download Resume
-          </div>
-        </a>
-      </div>
-
-      {
-        footerItems.map((section) => (
-          <div class="text-center sm:text-right">
-            <h3 class="mb-4 mt-1 font-bold">{section.title}</h3>
-            <ul class="text-muted-foreground space-y-4">
-              {section.links.map((link) =>
-                link.isExternal ? (
-                  <li class="hover:text-primary font-medium">
-                    <a
-                      href={link.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {link.text}
-                    </a>
-                  </li>
-                ) : (
-                  <li class="hover:text-primary font-medium">
-                    <a href={link.url}>{link.text}</a>
-                  </li>
-                ),
-              )}
-            </ul>
-          </div>
-        ))
-      }
-    </div>
+<footer class="pb-10 pt-20 bg-bottom px-3 sm:px-6 md:px-12 max-w-7xl mx-auto">
+  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
     <div
-      class="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 mt-6 text-muted-foreground border-t text-sm font-medium"
+      class="flex flex-col items-center justify-center col-span-2 pb-5 sm:pb-0 sm:block sm:col-span-2 space-y-2"
     >
-      <p>© 2026 robertskinney.com. All rights reserved.</p>
-      <ThemeSwitcher />
+      <div class="flex flex-row items-center gap-1 font-semibold">
+        <Image
+          src={siteFavicon}
+          loading="eager"
+          alt="A purple square outline logo."
+        />
+        <p>Robert Kinney</p>
+      </div>
+      <a href="/Kinney_Robert_Resume.pdf" download>
+        <div class="btn-sm-outline text-xs">
+          <Download />
+          Download Resume
+        </div>
+      </a>
     </div>
-  </MaxWidthWrapper>
+
+    {
+      footerSections.map((section: FooterSection) => (
+        <div class="text-center sm:text-right">
+          <h3 class="mb-4 mt-1 font-bold">{section.title}</h3>
+          <ul class="text-muted-foreground space-y-4">
+            {section.links.map((link: FooterLink) => (
+              <a
+                href={link.url}
+                target={link.isExternal ? "_blank" : ""}
+                target={link.isExternal ? "noopener noreferrer" : ""}
+              >
+                <li class="flex items-center justify-center sm:justify-end hover:text-primary font-medium py-1.5">
+                  {link.icon && (
+                    <link.icon class="size-5 inline-block mr-1.5" />
+                  )}
+                  <p>{link.text}</p>
+                </li>
+              </a>
+            ))}
+          </ul>
+        </div>
+      ))
+    }
+  </div>
+  <div
+    class="flex flex-col sm:flex-row items-center justify-between gap-3 py-6 mt-6 text-muted-foreground border-t text-sm font-medium"
+  >
+    <p>© 2026 robertskinney.com. All rights reserved.</p>
+    <ThemeSwitcher />
+  </div>
 </footer>

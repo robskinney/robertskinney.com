@@ -2,10 +2,19 @@
 import { Image } from "astro:assets";
 import { Mail } from "@lucide/astro";
 import siteFavicon from "../../public/favicon.svg";
+
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === "/";
+const isProjects = currentPath.startsWith("/projects");
 ---
 
-<nav class="sticky top-0 w-full bg-sidebar border-b z-50 h-20">
-  <div class="h-full flex items-center justify-between px-4 py-5">
+<nav
+  id="navbar"
+  class="sticky top-0 w-full bg-sidebar border-b z-50 h-20 transition-all duration-300"
+>
+  <div
+    class="h-full flex items-center mx-auto justify-between py-5 px-3 sm:px-6 md:px-12 max-w-7xl"
+  >
     <a href="/" class="underline">
       <Image
         src={siteFavicon}
@@ -16,12 +25,45 @@ import siteFavicon from "../../public/favicon.svg";
     </a>
 
     <div class="flex items-center gap-3">
+      <a href="/">
+        <button
+          class:list={[
+            "btn-ghost flex py-1 px-1.5 rounded-none",
+            isHome && "bg-primary text-primary-foreground",
+          ]}
+          type="button"
+        >
+          {isHome ? "home_" : "home"}
+        </button>
+      </a>
+      <a href="/projects">
+        <button
+          class:list={[
+            "btn-ghost flex py-1 px-1.5 rounded-none",
+            isProjects && "bg-primary text-primary-foreground",
+          ]}
+          type="button"
+        >
+          {isProjects ? "projects_" : "projects"}
+        </button>
+      </a>
+    </div>
+
+    <div class="flex items-center gap-3">
       <a
         href="mailto:robertskinney@outlook.com?Subject=Inquiry to Robert Kinney"
       >
-        <button class="btn btn-sm rounded-full">
+        <button
+          id="contact-button"
+          type="button"
+          aria-label="Contact me"
+          data-tooltip="Contact me"
+          data-side="bottom"
+          data-align="end"
+          onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))"
+          class="btn-icon-outline text-primary size-8"
+        >
           <Mail />
-          Contact Me
         </button>
       </a>
     </div>
