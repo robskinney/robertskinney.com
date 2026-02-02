@@ -3,13 +3,16 @@ import { Image } from "astro:assets";
 
 import { DatabaseZap, Layers } from "@lucide/astro";
 
-import heroImage from "../../../../public/images/robert-hero.webp";
+import heroImage from "@/assets/robert-hero.webp";
 ---
 
 <div class="card relative w-full h-full overflow-hidden drop-shadow-lg">
   <Image
     src={heroImage}
     alt="Robert Kinney's Headshot"
+    widths={[600, 900, 1200, heroImage.width]}
+    sizes={`(max-width: 768px) 100vw, 981px`}
+    fetchpriority={"high"}
     class="absolute inset-0 w-full h-full object-cover object-[60%_center] lg:object-[30%_center]"
   />
 
