@@ -50,11 +50,15 @@ const { Content } = await render(project);
           project.data.link && (
             <a
               href={project.data.link}
-              class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+              class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground p-0.5"
               target="_blank"
+              aria-label="Go to Project Website"
+              data-tooltip="Go to Project Website"
+              data-side="bottom"
+              data-align="end"
               rel="noopener noreferrer"
             >
-              <ExternalLinkIcon class="size-3.5" />
+              <ExternalLinkIcon class="size-4" />
             </a>
           )
         }
@@ -62,8 +66,12 @@ const { Content } = await render(project);
           project.data.github && (
             <a
               href={project.data.github}
-              class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+              class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground p-0.5"
               target="_blank"
+              aria-label="View on GitHub"
+              data-tooltip="View on GitHub"
+              data-side="bottom"
+              data-align="end"
               rel="noopener noreferrer"
             >
               <Github class="size-4" />
