@@ -12,7 +12,13 @@ const result = findTechnologyBadge(name);
 {
   result ? (
     <a
-      href={`/projects/tag/${encodeURIComponent(result.badge.name.toLowerCase())}`}
+      href={`/projects/tag/${encodeURIComponent(
+        result.badge.name
+          .toLowerCase()
+          .replace(/\s+/g, "-")
+          .replace(/\//g, "-")
+          .replace(/\./g, "-"),
+      )}`}
     >
       <span
         class:list={[
