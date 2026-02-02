@@ -61,18 +61,21 @@ export const footerSections: FooterSection[] = [
         />
         <p>Robert Kinney</p>
       </div>
-      <a href="/Kinney_Robert_Resume.pdf" download>
-        <div class="btn-sm-outline text-xs">
-          <Download />
-          Download Resume
-        </div>
+      <a
+        type="button"
+        class="btn-sm-outline text-xs"
+        href="/Kinney_Robert_Resume.pdf"
+        download
+      >
+        <Download class="stroke-2" />
+        Download Resume
       </a>
     </div>
 
     {
       footerSections.map((section: FooterSection) => (
         <div class="text-center sm:text-right">
-          <h3 class="mb-4 mt-1 font-bold">{section.title}</h3>
+          <h3 class="mb-4 mt-1 font-semibold text-sm">{section.title}</h3>
           <ul class="text-muted-foreground space-y-4">
             {section.links.map((link: FooterLink) => (
               <a
@@ -80,10 +83,8 @@ export const footerSections: FooterSection[] = [
                 target={link.isExternal ? "_blank" : ""}
                 target={link.isExternal ? "noopener noreferrer" : ""}
               >
-                <li class="flex items-center justify-center sm:justify-end hover:text-primary font-medium py-1.5">
-                  {link.icon && (
-                    <link.icon class="size-5 inline-block mr-1.5" />
-                  )}
+                <li class="flex items-center justify-center sm:justify-end text-sm hover:text-primary font-medium py-1.5">
+                  {link.icon && <link.icon class="size-4 inline-block mr-1" />}
                   <p>{link.text}</p>
                 </li>
               </a>

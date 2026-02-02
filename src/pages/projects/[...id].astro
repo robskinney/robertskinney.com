@@ -2,8 +2,9 @@
 import MaxWidthWrapper from "@/components/max-width-wrapper.astro";
 import BaseLayout from "@/layouts/base-layout.astro";
 import Prose from "@/components/prose.astro";
-import { ChevronLeft, ExternalLinkIcon } from "@lucide/astro";
+import { ChevronLeft, ChevronRight, ExternalLinkIcon } from "@lucide/astro";
 import { getCollection, render } from "astro:content";
+import Github from "@/components/icons/social/github.astro";
 // 1. Generate a new path for every collection entry
 export async function getStaticPaths() {
   const projects = await getCollection("projects");
@@ -33,41 +34,43 @@ const { Content } = await render(project);
         >
       </li>
       <li>
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="size-3.5"><path d="m9 18 6-6-6-6"></path></svg
-        >
+        <ChevronRight class="size-3.5" />
       </li>
       <li class="inline-flex items-center gap-1.5">
         <span class="text-foreground font-normal">{project.data.title}</span>
       </li>
     </ol>
 
-    <div class="my-4">
-      <h2 class="scroll-m-20 text-xl font-semibold tracking-tight">
+    <div class="flex flex-row justify-between my-4">
+      <h2 class="scroll-m-20 text-xl font-medium tracking-tight">
         {project.data.title}
       </h2>
-      {
-        project.data.link && (
-          <a
-            href={project.data.link}
-            class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-primary"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <p>Try it out</p>
-            <ExternalLinkIcon class="size-3" />
-          </a>
-        )
-      }
+      <div class="flex flex-row-reverse items-center gap-1.5">
+        {
+          project.data.link && (
+            <a
+              href={project.data.link}
+              class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLinkIcon class="size-3.5" />
+            </a>
+          )
+        }
+        {
+          project.data.github && (
+            <a
+              href={project.data.github}
+              class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github class="size-4" />
+            </a>
+          )
+        }
+      </div>
     </div>
 
     <Prose>

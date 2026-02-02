@@ -1,0 +1,85 @@
+---
+import type { InferEntrySchema } from "astro:content";
+
+import { ExternalLinkIcon } from "@lucide/astro";
+import TechnologyBadge from "./technology-badge.astro";
+import Github from "./icons/social/github.astro";
+
+type Project = {
+  id: string;
+  body?: string;
+  collection: "projects";
+  data: InferEntrySchema<"projects">;
+};
+
+interface Props {
+  projects: Project[];
+}
+
+const { projects } = Astro.props;
+---
+
+<table class="table my-8">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Tags</th>
+      <th class="text-right">Links</th>
+    </tr>
+  </thead>
+  <tbody>
+    {
+      projects.length > 0 ? (
+        projects.map((project) => (
+          <tr>
+            <td class="font-medium">
+              <a
+                type="button"
+                class="btn-link p-0 text-primary-foreground"
+                href={`/projects/${project.id}`}
+              >
+                {project.data.title}
+              </a>
+            </td>
+            <td>
+              <div class="flex flex-wrap gap-1">
+                {project.data.tags.map((tag) => (
+                  <TechnologyBadge name={tag} />
+                ))}
+              </div>
+            </td>
+            <td>
+              <div class="flex flex-row-reverse gap-2">
+                {project.data.link && (
+                  <a
+                    href={project.data.link}
+                    class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLinkIcon class="size-3.5" />
+                  </a>
+                )}
+                {project.data.github && (
+                  <a
+                    href={project.data.github}
+                    class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Github class="size-4" />
+                  </a>
+                )}
+              </div>
+            </td>
+          </tr>
+        ))
+      ) : (
+        <tr>
+          <td colspan="3">No projects yet!</td>
+        </tr>
+      )
+    }
+    {}
+  </tbody>
+</table>

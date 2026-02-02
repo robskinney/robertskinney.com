@@ -1,10 +1,27 @@
 ---
+export const prerender = false;
+
 import "../../styles/global.css";
 import BaseLayout from "@/layouts/base-layout.astro";
+import TechnologyBadge from "@/components/technology-badge.astro";
 import MaxWidthWrapper from "@/components/max-width-wrapper.astro";
 
 import { getCollection } from "astro:content";
-const projects = await getCollection("projects");
+import { ExternalLinkIcon } from "@lucide/astro";
+import Github from "@/components/icons/social/github.astro";
+import ProjectsTable from "@/components/projects-table.astro";
+
+const allProjects = await getCollection("projects");
+
+const tagFilter = Astro.url.searchParams.get("tag");
+
+const projects = tagFilter
+  ? allProjects.filter((project) =>
+      project.data.tags.some(
+        (tag) => tag.toLowerCase() === tagFilter.toLowerCase(),
+      ),
+    )
+  : allProjects;
 ---
 
 <BaseLayout
@@ -14,31 +31,10 @@ const projects = await getCollection("projects");
   }}
 >
   <MaxWidthWrapper>
-    <h2 class="scroll-m-20 text-xl font-semibold tracking-tight pt-3">
+    <h2 class="scroll-m-20 text-xl font-medium tracking-tight pt-3">
       My Projects
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 my-8">
-      {
-        projects.map((project) => (
-          <a href={`/projects/${project.id}`}>
-            <div class="card flex flex-col h-full py-3 px-4 gap-3 shadow-s hover:shadow-l transition-all">
-              <p class="tracking-tight">{project.data.title}</p>
-              {project.data.tags && (
-                <div class="flex flex-wrap gap-1">
-                  {project.data.tags.map((tag: string) => {
-                    return (
-                      <div class="badge-secondary flex gap-1.5 text-xs rounded-full">
-                        {tag}
-                      </div>
-                    );
-                  })}
-                </div>
-              )}
-            </div>
-          </a>
-        ))
-      }
-    </div>
+    <ProjectsTable projects={projects} />
   </MaxWidthWrapper>
 </BaseLayout>

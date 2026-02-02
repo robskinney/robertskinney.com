@@ -20,31 +20,31 @@ const isProjects = currentPath.startsWith("/projects");
         src={siteFavicon}
         loading="eager"
         alt="A purple square outline logo."
-        class="transition-all hover:rotate-45"
+        class="transition-all hover:rotate-45 size-6"
       />
     </a>
 
-    <div class="flex items-center gap-3">
+    <div class="flex items-center gap-2">
       <a href="/">
         <button
           class:list={[
-            "btn-ghost flex py-1 px-1.5 rounded-none",
-            isHome && "bg-primary text-primary-foreground",
+            "btn-sm-ghost text-xs px-1 flex rounded-xs border-b-2",
+            isHome ? "border-primary/75" : "border-transparent",
           ]}
           type="button"
         >
-          {isHome ? "home_" : "home"}
+          home
         </button>
       </a>
       <a href="/projects">
         <button
           class:list={[
-            "btn-ghost flex py-1 px-1.5 rounded-none",
-            isProjects && "bg-primary text-primary-foreground",
+            "btn-sm-ghost text-xs px-1 flex rounded-xs border-b-2",
+            isProjects ? "border-primary/75" : "border-transparent",
           ]}
           type="button"
         >
-          {isProjects ? "projects_" : "projects"}
+          projects
         </button>
       </a>
     </div>
@@ -61,9 +61,9 @@ const isProjects = currentPath.startsWith("/projects");
           data-side="bottom"
           data-align="end"
           onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))"
-          class="btn-icon-outline text-primary size-8"
+          class="btn-icon-ghost rounded-xs size-6"
         >
-          <Mail />
+          <Mail class="stroke-2" />
         </button>
       </a>
     </div>

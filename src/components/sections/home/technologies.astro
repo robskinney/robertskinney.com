@@ -1,68 +1,6 @@
 ---
-import Python from "@/components/icons/technology/languages/python.astro";
-import SQL from "@/components/icons/technology/languages/sql.astro";
-import Pandas from "@/components/icons/technology/languages/pandas.astro";
-import HTML from "@/components/icons/technology/languages/html.astro";
-import TypesScript from "@/components/icons/technology/languages/typescript.astro";
-import JavaScript from "@/components/icons/technology/languages/javascript.astro";
-import R from "@/components/icons/technology/languages/r.astro";
-
-import Alteryx from "@/components/icons/technology/data-tools/alteryx.astro";
-import PowerBI from "@/components/icons/technology/data-tools/power-bi.astro";
-import Tableau from "@/components/icons/technology/data-tools/tableau.astro";
-import MicrosoftExcel from "@/components/icons/technology/data-tools/microsoft-excel.astro";
-import MicrosoftAccess from "@/components/icons/technology/data-tools/microsoft-access.astro";
-
-import AWS from "@/components/icons/technology/cloud-platforms/aws.astro";
-import Azure from "@/components/icons/technology/cloud-platforms/azure.astro";
-import GoogleCloud from "@/components/icons/technology/cloud-platforms/google-cloud.astro";
-
-import Figma from "@/components/icons/technology/other/figma.astro";
-import PowerAutomate from "@/components/icons/technology/other/powerautomate.astro";
-import SAP from "@/components/icons/technology/other/sap.astro";
-import Visio from "@/components/icons/technology/other/visio.astro";
-
-const technologies = [
-  {
-    name: "Languages",
-    items: [
-      { name: "Python", icon: Python },
-      { name: "SQL", icon: SQL },
-      { name: "Pandas", icon: Pandas },
-      { name: "HTML/CSS", icon: HTML },
-      { name: "TypeScript", icon: TypesScript },
-      { name: "JavaScript", icon: JavaScript },
-      { name: "R", icon: R },
-    ],
-  },
-  {
-    name: "Data Tools",
-    items: [
-      { name: "Alteryx", icon: Alteryx },
-      { name: "Power BI", icon: PowerBI },
-      { name: "Tableau", icon: Tableau },
-      { name: "Microsoft Access", icon: MicrosoftAccess },
-      { name: "Microsoft Excel", icon: MicrosoftExcel },
-    ],
-  },
-  {
-    name: "Cloud Platforms",
-    items: [
-      { name: "Amazon Web Services", icon: AWS },
-      { name: "Microsoft Azure", icon: Azure },
-      { name: "Google Cloud", icon: GoogleCloud },
-    ],
-  },
-  {
-    name: "Other",
-    items: [
-      { name: "Figma", icon: Figma },
-      { name: "Microsoft Visio", icon: Visio },
-      { name: "SAP S/4", icon: SAP },
-      { name: "Microsoft PowerAutomate", icon: PowerAutomate },
-    ],
-  },
-];
+import TechnologyBadge from "@/components/technology-badge.astro";
+import { TechnologyBadges } from "@/lib/data/technologies";
 ---
 
 <div class="flex flex-col gap-5 pb-3">
@@ -76,16 +14,13 @@ const technologies = [
 
   <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
     {
-      technologies.map((section) => (
+      TechnologyBadges.map((section) => (
         <div class="card md:last:col-span-3">
           <header>{section.name}</header>
 
           <section class="flex flex-wrap gap-2">
             {section.items.map((item) => (
-              <span class="badge-outline py-1 px-2">
-                <item.icon class="size-4" />
-                <p class="ml-0.5">{item.name}</p>
-              </span>
+              <TechnologyBadge name={item.name} />
             ))}
           </section>
         </div>

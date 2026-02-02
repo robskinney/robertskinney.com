@@ -3,14 +3,35 @@ import { Moon, Sun } from "@lucide/astro";
 ---
 
 <button
+  id="theme-switcher-button"
   type="button"
   aria-label="Toggle dark mode"
   data-tooltip="Toggle dark mode"
-  data-side="top"
-  data-align="end"
   onclick="document.dispatchEvent(new CustomEvent('basecoat:theme'))"
   class="btn-icon-outline size-8"
 >
-  <span class="hidden dark:block"><Sun /></span>
-  <span class="block dark:hidden"><Moon /></span>
+  <span class="hidden dark:block"><Sun class="size-4 stroke-2" /></span>
+  <span class="block dark:hidden"><Moon class="size-4 stroke-2" /></span>
 </button>
+
+<script is:inline>
+  function updateTooltipAlign() {
+    const button = document.getElementById("theme-switcher-button");
+    if (!button) return;
+
+    // sm: breakpoint is 640px in Tailwind
+    if (window.matchMedia("(min-width: 640px)").matches) {
+      button.setAttribute("data-side", "top");
+      button.setAttribute("data-align", "end");
+    } else {
+      button.setAttribute("data-side", "bottom");
+      button.setAttribute("data-align", "center");
+    }
+  }
+
+  // Update on load
+  updateTooltipAlign();
+
+  // Update on resize
+  window.addEventListener("resize", updateTooltipAlign);
+</script>
