@@ -10,7 +10,6 @@ const projects = defineCollection({
     publishedAt: z.date(),
     github: z.string().url().optional(),
     link: z.string().url().optional(),
-    image: z.string(),
     tags: z.array(z.string()),
   }),
 });

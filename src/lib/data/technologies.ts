@@ -1,7 +1,6 @@
 import Python from "@/components/icons/technology/languages/python.astro";
 import SQL from "@/components/icons/technology/languages/sql.astro";
 import Postgres from "@/components/icons/technology/languages/postgres.astro";
-import Pandas from "@/components/icons/technology/languages/pandas.astro";
 import HTML from "@/components/icons/technology/languages/html.astro";
 import TypesScript from "@/components/icons/technology/languages/typescript.astro";
 import JavaScript from "@/components/icons/technology/languages/javascript.astro";
@@ -18,6 +17,7 @@ import AWS from "@/components/icons/technology/cloud-platforms/aws.astro";
 import Azure from "@/components/icons/technology/cloud-platforms/azure.astro";
 import GoogleCloud from "@/components/icons/technology/cloud-platforms/google-cloud.astro";
 
+import Astro from "@/components/icons/technology/other/astro.astro";
 import NextJS from "@/components/icons/technology/other/nextjs.astro";
 import TanStack from "@/components/icons/technology/other/tanstack.astro";
 import Prisma from "@/components/icons/technology/other/prisma.astro";
@@ -26,6 +26,7 @@ import Figma from "@/components/icons/technology/other/figma.astro";
 import PowerAutomate from "@/components/icons/technology/other/powerautomate.astro";
 import SAP from "@/components/icons/technology/other/sap.astro";
 import Visio from "@/components/icons/technology/other/visio.astro";
+import Pandas from "@/components/icons/technology/languages/pandas.astro";
 import Flask from "@/components/icons/technology/other/flask.astro";
 import NetworkX from "@/components/icons/technology/other/networkx.astro";
 
@@ -38,7 +39,6 @@ export const TechnologyBadges = [
       { name: "Python", icon: Python },
       { name: "SQL", icon: SQL },
       { name: "PostgreSQL", icon: Postgres },
-      { name: "Pandas", icon: Pandas },
       { name: "HTML/CSS", icon: HTML },
       { name: "TypeScript", icon: TypesScript },
       { name: "JavaScript", icon: JavaScript },
@@ -73,6 +73,7 @@ export const TechnologyBadges = [
     color:
       "bg-amber-50 text-amber-900 border-amber-200/60 dark:bg-amber-950/50 dark:text-amber-200 dark:border-amber-800/40",
     items: [
+      { name: "Astro", icon: Astro },
       { name: "NextJS", icon: NextJS },
       { name: "TanStack Start", icon: TanStack },
       { name: "Prisma", icon: Prisma },
@@ -81,6 +82,7 @@ export const TechnologyBadges = [
       { name: "Microsoft Visio", icon: Visio },
       { name: "SAP S/4", icon: SAP },
       { name: "Microsoft PowerAutomate", icon: PowerAutomate },
+      { name: "Pandas", icon: Pandas },
       { name: "Flask", icon: Flask },
       { name: "NetworkX", icon: NetworkX },
     ],

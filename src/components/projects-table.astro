@@ -49,21 +49,7 @@ const { projects } = Astro.props;
               </div>
             </td>
             <td>
-              <div class="flex flex-row-reverse gap-2">
-                {project.data.link && (
-                  <a
-                    href={project.data.link}
-                    class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
-                    target="_blank"
-                    aria-label="Go to Project Website"
-                    data-tooltip="Go to Project Website"
-                    data-side="bottom"
-                    data-align="end"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLinkIcon class="size-4" />
-                  </a>
-                )}
+              <div class="flex flex-row justify-end gap-2">
                 {project.data.github && (
                   <a
                     href={project.data.github}
@@ -76,6 +62,20 @@ const { projects } = Astro.props;
                     rel="noopener noreferrer"
                   >
                     <Github class="size-4" />
+                  </a>
+                )}
+                {project.data.link && (
+                  <a
+                    href={project.data.link}
+                    class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+                    target="_blank"
+                    aria-label="Go to Project Website"
+                    data-tooltip="Go to Project Website"
+                    data-side="bottom"
+                    data-align="end"
+                    rel="noopener noreferrer"
+                  >
+                    <ExternalLinkIcon class="size-4" />
                   </a>
                 )}
               </div>
