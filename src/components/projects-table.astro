@@ -19,75 +19,81 @@ interface Props {
 const { projects } = Astro.props;
 ---
 
-<table class="table my-8">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Tags</th>
-      <th class="text-right">Links</th>
-    </tr>
-  </thead>
-  <tbody>
-    {
-      projects.length > 0 ? (
-        projects.map((project) => (
+<div class="overflow-x-auto overflow-y-hidden my-8">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Tags</th>
+        <th class="text-right">Links</th>
+      </tr>
+    </thead>
+    <tbody>
+      {
+        projects.length > 0 ? (
+          projects.map((project) => (
+            <tr
+              class="cursor-pointer hover:bg-muted/50 transition-colors"
+              data-href={`/projects/${project.id}`}
+            >
+              <td class="font-medium">{project.data.title}</td>
+              <td>
+                <div class="flex flex-wrap gap-1">
+                  {project.data.tags.map((tag) => (
+                    <TechnologyBadge name={tag} />
+                  ))}
+                </div>
+              </td>
+              <td>
+                <div class="flex flex-row justify-end gap-2">
+                  {project.data.github && (
+                    <a
+                      href={project.data.github}
+                      class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+                      target="_blank"
+                      aria-label="View on GitHub"
+                      data-tooltip="View on GitHub"
+                      data-side="bottom"
+                      data-align="end"
+                      rel="noopener noreferrer"
+                    >
+                      <Github class="size-4" />
+                    </a>
+                  )}
+                  {project.data.link && (
+                    <a
+                      href={project.data.link}
+                      class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
+                      target="_blank"
+                      aria-label="Go to Project Website"
+                      data-tooltip="Go to Project Website"
+                      data-side="bottom"
+                      data-align="end"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLinkIcon class="size-4" />
+                    </a>
+                  )}
+                </div>
+              </td>
+            </tr>
+          ))
+        ) : (
           <tr>
-            <td class="font-medium">
-              <a
-                type="button"
-                class="btn-link p-0 text-secondary-foreground"
-                href={`/projects/${project.id}`}
-              >
-                {project.data.title}
-              </a>
-            </td>
-            <td>
-              <div class="flex flex-wrap gap-1">
-                {project.data.tags.map((tag) => (
-                  <TechnologyBadge name={tag} />
-                ))}
-              </div>
-            </td>
-            <td>
-              <div class="flex flex-row justify-end gap-2">
-                {project.data.github && (
-                  <a
-                    href={project.data.github}
-                    class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
-                    target="_blank"
-                    aria-label="View on GitHub"
-                    data-tooltip="View on GitHub"
-                    data-side="bottom"
-                    data-align="end"
-                    rel="noopener noreferrer"
-                  >
-                    <Github class="size-4" />
-                  </a>
-                )}
-                {project.data.link && (
-                  <a
-                    href={project.data.link}
-                    class="flex flex-row gap-1 items-center text-sm text-muted-foreground hover:text-accent-foreground"
-                    target="_blank"
-                    aria-label="Go to Project Website"
-                    data-tooltip="Go to Project Website"
-                    data-side="bottom"
-                    data-align="end"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLinkIcon class="size-4" />
-                  </a>
-                )}
-              </div>
-            </td>
+            <td colspan="3">No projects yet!</td>
           </tr>
-        ))
-      ) : (
-        <tr>
-          <td colspan="3">No projects yet!</td>
-        </tr>
-      )
-    }
-    {}
-  </tbody>
-</table>
+        )
+      }
+      {}
+    </tbody>
+  </table>
+</div>
+
+<script>
+  document.querySelectorAll("tr[data-href]").forEach((row) => {
+    row.addEventListener("click", (e) => {
+      if ((e.target as HTMLElement).closest("a, button")) return;
+      window.location.href = row.getAttribute("data-href")!;
+    });
+  });
+</script>

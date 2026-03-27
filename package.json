@@ -9,13 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/mdx": "^4.3.13",
-    "@astrojs/vercel": "^9.0.4",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/vercel": "^10.0.3",
     "@lucide/astro": "^0.563.0",
-    "@tailwindcss/vite": "^4.1.18",
-    "astro": "^5.16.15",
-    "basecoat-css": "^0.3.10",
-    "tailwindcss": "^4.1.18",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.1.1",
+    "basecoat-css": "^0.3.11",
+    "tailwindcss": "^4.2.2",
     "taos": "^2.0.1"
   },
   "devDependencies": {
