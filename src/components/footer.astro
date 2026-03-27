@@ -78,7 +78,7 @@ export const footerSections: FooterSection[] = [
       footerSections.map((section: FooterSection) => (
         <div class="text-center sm:text-right">
           <h3 class="mb-4 mt-1 font-semibold text-sm">{section.title}</h3>
-          <ul class="text-muted-foreground space-y-4">
+          <ul class="text-muted-foreground space-y-1.5">
             {section.links.map((link: FooterLink) => (
               <li>
                 <a
@@ -87,12 +87,8 @@ export const footerSections: FooterSection[] = [
                   rel={link.isExternal ? "noopener noreferrer" : undefined}
                   class="flex items-center justify-center sm:justify-end text-sm text-muted-foreground hover:text-accent-foreground font-medium py-1.5"
                 >
-                  {link.icon && (
-                    <span class="inline-flex items-center mr-1">
-                      <link.icon class="size-4" />
-                    </span>
-                  )}
-                  <span>{link.text}</span>
+                  {link.icon && <link.icon class="size-4.5 mr-1 " />}
+                  <span class="h-4">{link.text}</span>
                 </a>
               </li>
             ))}
