@@ -19,6 +19,7 @@ const result = findTechnologyBadge(name);
           .replace(/\//g, "-")
           .replace(/\./g, "-"),
       )}`}
+      aria-label={`Filter projects by ${result.badge.name}`}
     >
       <span
         class:list={[
