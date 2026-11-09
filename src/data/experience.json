@@ -1,25 +1,31 @@
 [
   {
-    "title": "Senior Tax Technology Consultant",
     "company": "EY",
-    "durationShort": "August 2025 - Present",
-    "durationLong": "2025 - Present",
-    "content": [
-      "Engineered ETL pipelines using Python, SQL, and Alteryx to ingest and transform large client datasets, feeding automated reporting workflows and interactive Power BI dashboards that replaced manual processes.",
-      "Deployed an AI-driven invoice agent that identifies eligible invoices from client AP data, triggers automated retrieval through a Power Automate bot, and applies LLM-based classification to assign commodity codes and determine process eligibility based on line-item descriptions, eliminating hours of manual effort per month.",
-      "Integrated client Vertex and ONESOURCE tax engine instances with EY's platform via API connectivity, automating rate and taxability determination across millions of transactions per month.",
-      "Embedded multi-stage approval workflows and control-total validation into monthly processes, giving reviewers step-level approval checkpoints and a defensible audit trail."
-    ]
-  },
-  {
-    "title": "Staff Tax Technology Consultant",
-    "company": "EY",
-    "durationShort": "July 2023 - August 2025",
-    "durationLong": "2023 - 2025",
-    "content": [
-      "Led product definition for a platform integration between two internal systems, authoring user stories and detailed requirements, building UI mockups in Figma, and executing business testing.",
-      "Owned onboarding and configuration of 80+ clients onto an internal SaaS platform, delivering tailored solutions that streamlined day-to-day workflows for both client and engagement teams.",
-      "Authored comprehensive technical documentation, including business and data requirements, process flow diagrams, and end-user guides, enabling smooth adoption of new tools across distributed teams."
+    "logo": "/images/logos/ey.svg",
+    "roles": [
+      {
+        "title": "Senior Tax Technology Consultant",
+        "location": "New York, NY (Hybrid)",
+        "startDate": "2025-08-01",
+        "endDate": "",
+        "highlights": [
+          "Engineered ETL pipelines using Python, SQL, and Alteryx to ingest and transform large client datasets, feeding automated reporting workflows and interactive Power BI dashboards that replaced manual processes.",
+          "Deployed an AI-driven invoice agent that identifies eligible invoices from client AP data, triggers automated retrieval through a Power Automate bot, and applies LLM-based classification to assign commodity codes and determine process eligibility based on line-item descriptions, eliminating hours of manual effort per month.",
+          "Integrated client Vertex and ONESOURCE tax engine instances with EY's platform via API connectivity, automating rate and taxability determination across millions of transactions per month.",
+          "Embedded multi-stage approval workflows and control-total validation into monthly processes, giving reviewers step-level approval checkpoints and a defensible audit trail."
+        ]
+      },
+      {
+        "title": "Staff Tax Technology Consultant",
+        "location": "New York, NY (Hybrid)",
+        "startDate": "2023-07-01",
+        "endDate": "2025-08-01",
+        "highlights": [
+          "Led product definition for a platform integration between two internal systems, authoring user stories and detailed requirements, building UI mockups in Figma, and executing business testing.",
+          "Owned onboarding and configuration of 80+ clients onto an internal SaaS platform, delivering tailored solutions that streamlined day-to-day workflows for both client and engagement teams.",
+          "Authored comprehensive technical documentation, including business and data requirements, process flow diagrams, and end-user guides, enabling smooth adoption of new tools across distributed teams."
+        ]
+      }
     ]
   }
 ]

@@ -1,15 +1,39 @@
 ---
-import EY from "@/components/icons/experience/ey.astro";
-
 import experienceData from "@/data/experience.json";
 
-// Maps the company name stored in experience.json (edited via Pages CMS) to its logo.
-const companyLogos: Record<string, typeof EY> = { EY };
+type Role = {
+  title: string;
+  location?: string;
+  startDate: string;
+  endDate?: string;
+  highlights?: string[];
+};
 
-const experience = experienceData.map((entry) => ({
-  ...entry,
-  companyLogo: companyLogos[entry.company],
-}));
+type Company = {
+  company: string;
+  logo?: string;
+  roles?: Role[];
+};
+
+// Dates are stored as yyyy-MM-dd; parse as UTC so the month never shifts by timezone.
+const formatMonth = (date: string) =>
+  new Date(`${date}T00:00:00Z`).toLocaleDateString("en-US", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+
+// One card per role, in the order they appear in experience.json (editable via Pages CMS).
+const experience = (experienceData as Company[]).flatMap((company) =>
+  (company.roles ?? []).map((role) => ({
+    ...role,
+    company: company.company,
+    logo: company.logo,
+    duration: `${formatMonth(role.startDate)} - ${
+      role.endDate ? formatMonth(role.endDate) : "Present"
+    }`,
+  })),
+);
 ---
 
 <div class="flex flex-col gap-5 pb-3">
@@ -27,12 +51,20 @@ const experience = experienceData.map((entry) => ({
         <div class="card border shadow-md dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),inset_0_4px_32px_-4px_rgba(255,255,255,0.08)]">
           <header class="flex flex-row justify-between">
             <div class="flex flex-row items-center justify-center gap-x-3">
-              {section.companyLogo && <section.companyLogo class="size-6" />}
+              {section.logo && (
+                <img
+                  src={section.logo}
+                  alt={`${section.company} logo`}
+                  class="size-6 rounded-xs object-contain"
+                  width="24"
+                  height="24"
+                />
+              )}
 
               <div class="flex flex-col">
                 <h3 class="font-semibold">{section.title}</h3>
                 <h3 class="text-muted-foreground text-sm">
-                  {section.durationShort}
+                  {section.duration}
                 </h3>
               </div>
             </div>
@@ -40,7 +72,7 @@ const experience = experienceData.map((entry) => ({
 
           <section>
             <ul class="list-disc pl-5 space-y-2 muted">
-              {section.content.map((item) => (
+              {(section.highlights ?? []).map((item) => (
                 <li>{item}</li>
               ))}
             </ul>

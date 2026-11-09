@@ -5,6 +5,11 @@ media:
     input: public/images
     output: /images
     categories: [image]
+  - name: logos
+    label: Company logos
+    input: public/images/logos
+    output: /images/logos
+    categories: [image]
   - name: documents
     label: Documents
     input: public/documents
@@ -94,31 +99,45 @@ content:
     format: json
     list: true
     fields:
-      - name: title
-        label: Job title
-        type: string
-        required: true
       - name: company
         label: Company
-        description: Logos are mapped in src/components/sections/home/experience.astro.
-        type: select
+        type: string
         required: true
+      - name: logo
+        label: Logo
+        description: Square image, shown at 24px.
+        type: image
         options:
-          values: [EY]
-      - name: durationShort
-        label: Dates
-        description: e.g. "August 2025 - Present"
-        type: string
-        required: true
-      - name: durationLong
-        label: Years
-        description: e.g. "2025 - Present"
-        type: string
-        required: true
-      - name: content
-        label: Bullets
-        type: text
+          media: logos
+      - name: roles
+        label: Roles
+        description: Most recent first.
+        type: object
         list: true
+        fields:
+          - name: title
+            label: Job title
+            type: string
+            required: true
+          - name: location
+            label: Location
+            type: string
+          - name: startDate
+            label: Start date
+            type: date
+            required: true
+            options:
+              format: yyyy-MM-dd
+          - name: endDate
+            label: End date
+            description: Leave empty if this is your current role.
+            type: date
+            options:
+              format: yyyy-MM-dd
+          - name: highlights
+            label: Highlights
+            type: text
+            list: true
 
   - name: site
     label: Site settings
