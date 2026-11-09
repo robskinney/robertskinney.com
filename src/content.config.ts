@@ -7,7 +7,8 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    publishedAt: z.date(),
+    // coerce: Pages CMS may write the date as a quoted string
+    publishedAt: z.coerce.date(),
     github: z.string().url().optional(),
     link: z.string().url().optional(),
     tags: z.array(z.string()),

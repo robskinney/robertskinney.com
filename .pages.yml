@@ -1,0 +1,135 @@
+# Pages CMS configuration — https://pagescms.org/docs/configuration/
+media:
+  - name: images
+    label: Images
+    input: public/images
+    output: /images
+    categories: [image]
+  - name: documents
+    label: Documents
+    input: public/documents
+    output: /documents
+    categories: [document]
+
+content:
+  - name: projects
+    label: Projects
+    type: collection
+    path: src/content/projects
+    filename: "{primary}.mdx"
+    format: yaml-frontmatter
+    view:
+      fields: [title, publishedAt, tags]
+      primary: title
+      sort: publishedAt
+      order: desc
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: description
+        label: Description
+        type: text
+        required: true
+      - name: publishedAt
+        label: Published / last updated
+        type: date
+        required: true
+        options:
+          format: yyyy-MM-dd
+      - name: github
+        label: GitHub URL
+        type: string
+      - name: link
+        label: Live site URL
+        type: string
+      - name: tags
+        label: Tags
+        description: Must match a technology in src/lib/data/technologies.ts to show its icon.
+        type: select
+        required: true
+        options:
+          multiple: true
+          values:
+              - "Python"
+              - "SQL"
+              - "PostgreSQL"
+              - "HTML/CSS"
+              - "TypeScript"
+              - "JavaScript"
+              - "PHP"
+              - "R"
+              - "Alteryx"
+              - "Power BI"
+              - "Tableau"
+              - "Microsoft Access"
+              - "Microsoft Excel"
+              - "Amazon Web Services"
+              - "Microsoft Azure"
+              - "Google Cloud"
+              - "Astro"
+              - "NextJS"
+              - "TanStack Start"
+              - "Prisma"
+              - "Drizzle"
+              - "Figma"
+              - "Microsoft Visio"
+              - "SAP S/4"
+              - "Microsoft PowerAutomate"
+              - "Pandas"
+              - "Flask"
+              - "NetworkX"
+      - name: body
+        label: Body
+        type: rich-text
+        options:
+          format: markdown
+          media: images
+
+  - name: experience
+    label: Experience
+    type: file
+    path: src/data/experience.json
+    format: json
+    list: true
+    fields:
+      - name: title
+        label: Job title
+        type: string
+        required: true
+      - name: company
+        label: Company
+        description: Logos are mapped in src/components/sections/home/experience.astro.
+        type: select
+        required: true
+        options:
+          values: [EY]
+      - name: durationShort
+        label: Dates
+        description: e.g. "August 2025 - Present"
+        type: string
+        required: true
+      - name: durationLong
+        label: Years
+        description: e.g. "2025 - Present"
+        type: string
+        required: true
+      - name: content
+        label: Bullets
+        type: text
+        list: true
+
+  - name: site
+    label: Site settings
+    type: file
+    path: src/data/site.json
+    format: json
+    fields:
+      - name: resume
+        label: Resume PDF
+        description: Upload a new PDF to replace the footer's "Download Resume" link.
+        type: file
+        required: true
+        options:
+          media: documents

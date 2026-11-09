@@ -1,33 +1,15 @@
 ---
 import EY from "@/components/icons/experience/ey.astro";
 
-export const experience = [
-  {
-    title: "Senior Tax Technology Consultant",
-    company: "EY",
-    companyLogo: EY,
-    durationShort: "August 2025 - Present",
-    durationLong: "2025 - Present",
-    content: [
-      "Engineered ETL pipelines using Python, SQL, and Alteryx to ingest and transform large client datasets, feeding automated reporting workflows and interactive Power BI dashboards that replaced manual processes.",
-      "Deployed an AI-driven invoice agent that identifies eligible invoices from client AP data, triggers automated retrieval through a Power Automate bot, and applies LLM-based classification to assign commodity codes and determine process eligibility based on line-item descriptions, eliminating hours of manual effort per month.",
-      "Integrated client Vertex and ONESOURCE tax engine instances with EY's platform via API connectivity, automating rate and taxability determination across millions of transactions per month.",
-      "Embedded multi-stage approval workflows and control-total validation into monthly processes, giving reviewers step-level approval checkpoints and a defensible audit trail.",
-    ],
-  },
-  {
-    title: "Staff Tax Technology Consultant",
-    company: "EY",
-    companyLogo: EY,
-    durationShort: "July 2023 - August 2025",
-    durationLong: "2023 - 2025",
-    content: [
-      "Led product definition for a platform integration between two internal systems, authoring user stories and detailed requirements, building UI mockups in Figma, and executing business testing.",
-      "Owned onboarding and configuration of 80+ clients onto an internal SaaS platform, delivering tailored solutions that streamlined day-to-day workflows for both client and engagement teams.",
-      "Authored comprehensive technical documentation, including business and data requirements, process flow diagrams, and end-user guides, enabling smooth adoption of new tools across distributed teams.",
-    ],
-  },
-];
+import experienceData from "@/data/experience.json";
+
+// Maps the company name stored in experience.json (edited via Pages CMS) to its logo.
+const companyLogos: Record<string, typeof EY> = { EY };
+
+const experience = experienceData.map((entry) => ({
+  ...entry,
+  companyLogo: companyLogos[entry.company],
+}));
 ---
 
 <div class="flex flex-col gap-5 pb-3">
@@ -45,7 +27,7 @@ export const experience = [
         <div class="card border shadow-md dark:shadow-[inset_0_1px_0_0_rgba(255,255,255,0.1),inset_0_4px_32px_-4px_rgba(255,255,255,0.08)]">
           <header class="flex flex-row justify-between">
             <div class="flex flex-row items-center justify-center gap-x-3">
-              <section.companyLogo class="size-6" />
+              {section.companyLogo && <section.companyLogo class="size-6" />}
 
               <div class="flex flex-col">
                 <h3 class="font-semibold">{section.title}</h3>

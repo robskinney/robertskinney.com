@@ -7,6 +7,7 @@ import LinkedIn from "@/components/icons/social/linkedin.astro";
 
 import siteFavicon from "../../public/favicon.svg";
 import ThemeSwitcher from "@/components/theme-switcher.astro";
+import site from "@/data/site.json";
 
 type FooterLink = {
   isExternal: boolean;
@@ -64,7 +65,7 @@ export const footerSections: FooterSection[] = [
       <a
         type="button"
         class="btn-sm-outline text-xs"
-        href="/Kinney_Robert_Resume.pdf"
+        href={site.resume}
         download
       >
         <span class="inline-flex stroke-2">
