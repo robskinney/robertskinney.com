@@ -92,57 +92,6 @@ content:
           format: markdown
           media: images
 
-  - name: legal
-    label: Legal pages
-    description: Privacy policies, terms and support pages for apps. Each one is published at /<app>/<kind>, e.g. /delegate/privacy.
-    type: collection
-    path: src/content/legal
-    filename: "{fields.app}-{fields.kind}.md"
-    format: yaml-frontmatter
-    view:
-      fields: [title, app, kind, updatedAt]
-      primary: title
-      sort: app
-    fields:
-      - name: title
-        label: Title
-        type: string
-        required: true
-      - name: app
-        label: App
-        description: Lowercase letters, numbers and dashes; becomes the first part of the URL (e.g. "delegate").
-        type: string
-        required: true
-        pattern:
-          regex: "^[a-z0-9]+(-[a-z0-9]+)*$"
-          message: Use lowercase letters, numbers and dashes only.
-      - name: appName
-        label: App display name
-        description: Shown above the title (e.g. "Delegate").
-        type: string
-        required: true
-      - name: kind
-        label: Page type
-        description: Becomes the second part of the URL.
-        type: select
-        required: true
-        options:
-          values:
-            - { value: privacy, label: Privacy policy }
-            - { value: terms, label: Terms of use }
-            - { value: support, label: Support }
-      - name: updatedAt
-        label: Last updated
-        type: date
-        required: true
-        options:
-          format: yyyy-MM-dd
-      - name: body
-        label: Body
-        type: rich-text
-        options:
-          format: markdown
-
   - name: experience
     label: Experience
     type: file

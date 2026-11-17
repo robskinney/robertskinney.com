@@ -15,15 +15,4 @@ const projects = defineCollection({
   }),
 });
 
-const legal = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "./src/content/legal" }),
-  schema: z.object({
-    title: z.string(),
-    app: z.string().regex(/^[a-z0-9]+(-[a-z0-9]+)*$/),
-    appName: z.string(),
-    kind: z.enum(["privacy", "terms", "support"]),
-    updatedAt: z.coerce.date(),
-  }),
-});
-
-export const collections = { projects, legal };
+export const collections = { projects };
